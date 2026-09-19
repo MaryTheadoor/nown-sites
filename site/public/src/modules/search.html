@@ -1,0 +1,10 @@
+<!-- search tile — full-text search via Pagefind (WASM, chunked index).
+     Pagefind needs a build-time index; if the index isn't present, the tile
+     degrades to a plain form that submits to the site's search page. -->
+<div class="tile tile-search" data-tile="search" data-tile-id="search-1" data-index="/pagefind/">
+  <form class="tile-search__form" role="search" action="/search" method="get" data-role="form">
+    <input type="search" name="q" aria-label="Search" data-role="placeholder" data-attr="placeholder" />
+    <button class="btn btn-tactile btn-primary-tactile" type="submit" data-role="submit">Search</button>
+  </form>
+  <div class="tile-search__results" data-role="results"></div>
+</div>

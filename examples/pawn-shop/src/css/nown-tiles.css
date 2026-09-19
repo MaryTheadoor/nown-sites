@@ -1,0 +1,614 @@
+/* ==========================================================================
+   nown-tiles.css — S.I.T.E.S Tiles
+   Core tile styles: nav-dock, tactile buttons, cards, hero, footer, and the
+   shared tile scaffolding. All values come from nown-plate.css tokens.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Tactile buttons  (.btn-tactile + color variants)
+   Solid depth via a 4px bottom border; :active presses down.
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform .1s ease, border-bottom-width .1s ease, box-shadow .1s ease, background-color .15s ease;
+  color: var(--color-text);
+  background: var(--color-surface-2);
+}
+.btn-tactile {
+  border-bottom-width: 4px;
+  box-shadow: var(--shadow-tactile);
+}
+.btn-tactile:active {
+  transform: translateY(3px);
+  border-bottom-width: 1px;
+  box-shadow: var(--shadow-tactile-active);
+}
+
+.btn-gold-tactile {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent-deep);
+  border-bottom-color: var(--color-accent-deep-2);
+  color: var(--color-on-accent);
+}
+.btn-primary-tactile {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary-deep);
+  border-bottom-color: var(--color-primary-deep);
+  color: var(--color-on-accent);
+}
+.btn-plum-tactile {
+  background-color: var(--color-plum);
+  border-color: var(--color-plum-deep);
+  border-bottom-color: var(--color-plum-deep);
+  color: var(--color-on-accent);
+}
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+}
+.btn-ghost:hover { background: color-mix(in srgb, var(--color-primary) 8%, transparent); }
+
+/* --------------------------------------------------------------------------
+   2. Glassmorphism card  (.glass-card)
+   -------------------------------------------------------------------------- */
+.glass-card {
+  background: var(--color-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-6);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.glass-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-elevated); }
+.glass-card:active { transform: translateY(1px); }
+
+/* --------------------------------------------------------------------------
+   3. Generic tile scaffolding
+   A tile root is `.tile .tile-<name>`; parts use `data-role`.
+   -------------------------------------------------------------------------- */
+.tile {
+  container-type: inline-size;   /* self-aware: children use container queries */
+}
+
+/* --------------------------------------------------------------------------
+   4. Navigation  (.nav-dock)
+
+   The dock is chrome rather than a tile in the grid, so its SHAPE is chosen by
+   variant rather than by a viewport breakpoint: the author picks a menu bar
+   configuration and gets it. Three ship:
+     (default)      the floating pill — the framework's signature shape
+     --bar          full-width bar, links centred
+     --minimal      brand and the theme toggle only; links are hidden
+
+   The one thing a variant cannot decide is how the LINKS reflow when the header
+   is narrow, and that is a container query on .site-header, not a viewport media
+   query (rule 5). It also had to move: the previous version was an
+   @media (min-width: 768px) that turned the dock into a pill on wide screens,
+   which is a page-level LAYOUT media query and a rule-5 violation sitting in the
+   tile stylesheet. Querying the header's own width says the same thing without
+   assuming the chrome is always as wide as the window.
+   -------------------------------------------------------------------------- */
+.site-header { container-type: inline-size; }
+
+.nav-dock {
+  background: var(--color-dock);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--color-dock-border);
+  padding: var(--space-2) var(--space-2);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-items: center;
+  align-items: center;
+  gap: 0;
+}
+/* Nav links live in a wrapper so they can be generated from content.json.
+   `display: contents` removes that wrapper from the layout, so its children become
+   direct grid/flex items of .nav-dock. Without it the dock collapses into a column. */
+.nav-dock__links { display: contents; }
+
+.nav-dock-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--color-text);
+  opacity: .75;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-md);
+  font-size: .55rem;
+  font-weight: 500;
+  transition: all .2s cubic-bezier(.25,.8,.25,1);
+  white-space: nowrap;
+}
+.nav-dock-link svg { width: 14px; height: 14px; margin-bottom: 1px; }
+.nav-dock-link:hover, .nav-dock-link.active { opacity: 1; color: var(--color-accent); background: color-mix(in srgb, var(--color-accent) 10%, transparent); transform: translateY(-2px); }
+.nav-dock-theme { border-left: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent); padding-left: var(--space-2); margin-left: var(--space-1); }
+
+@container (min-width: 48rem) {
+  .nav-dock {
+    border: 1px solid var(--color-dock-border);
+    border-radius: var(--radius-pill);
+    display: flex;
+    gap: var(--space-1);
+    padding: var(--space-2) var(--space-4);
+    max-width: fit-content;
+    margin: var(--space-2) auto;
+    box-shadow: var(--shadow-float);
+  }
+  .nav-dock-link { padding: var(--space-2) var(--space-3); }
+  .nav-dock-link svg { width: 18px; height: 18px; }
+}
+
+/* ---- variant: bar ---------------------------------------------------------
+   Full width, square, pinned to the top of the header. Overrides the pill in
+   both tiers, so it is a bar on a phone too — which is the point of choosing it. */
+.nav-dock.tile-nav-dock--bar {
+  border: 0;
+  border-bottom: 1px solid var(--color-dock-border);
+  border-radius: 0;
+  max-width: none;
+  margin: 0;
+  box-shadow: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-5);
+}
+.nav-dock.tile-nav-dock--bar .nav-dock-link {
+  flex-direction: row;
+  gap: var(--space-2);
+  font-size: .8rem;
+  padding: var(--space-2) var(--space-3);
+}
+.nav-dock.tile-nav-dock--bar .nav-dock-link svg { margin-bottom: 0; }
+
+/* ---- variant: minimal -----------------------------------------------------
+   Brand and the theme toggle only. Links stay in the markup — this is chrome,
+   and a nav that removes its own destinations from the DOM would cost the crawl
+   path — so they are hidden by clip rather than removed. */
+.nav-dock.tile-nav-dock--minimal .nav-dock__links,
+.nav-dock.tile-nav-dock--minimal .nav-dock-link:not(.nav-dock-theme) {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap;
+  padding: 0; margin: 0; border: 0;   /* a clipped 24px box is still a 24px box */
+}
+.nav-dock.tile-nav-dock--minimal {
+  border-radius: 0; border: 0; max-width: none; margin: 0;
+  box-shadow: none; display: flex; justify-content: flex-end;
+  padding: var(--space-2) var(--space-4);
+}
+/* nav-dock surfaces are token-driven (--color-dock / --color-dock-border),
+   so no component-specific dark overrides are needed. */
+
+/* --------------------------------------------------------------------------
+   5. Hero tile
+   -------------------------------------------------------------------------- */
+.tile-hero { padding: var(--space-16) 0; }
+/* The tile root is the container; the INNER grid is what reflows. A container
+   query always resolves against the nearest ANCESTOR container, so an element can
+   never query itself — `.tile-hero` must therefore not be the element that
+   changes. (This was a real bug: the hero silently stayed one column.) */
+.tile-hero__grid { display: grid; gap: var(--space-8); align-items: center; }
+.tile-hero__content h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin: 0 0 var(--space-4); }
+.tile-hero__content p { font-size: var(--text-lead); color: var(--color-text-muted); max-width: 60ch; }
+.tile-hero__actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-6); }
+/* Two columns only when the hero carries a visual, so there is no empty track. */
+@container (min-width: 45rem) {
+  /* Keyed on a real source, not on the wrapper: an unfilled media slot is hidden
+     by the rule above, and a two-column grid with an invisible second column
+     would leave the headline half-width with nothing beside it. */
+  .tile-hero__grid:has(img[src]:not([src=""])) { grid-template-columns: 1.1fr .9fr; }
+}
+
+/* ---- centering / alignment helpers (usable on any tile) ---- */
+.tile--center { text-align: center; }
+.tile--center .tile-hero__content,
+.tile--center > [data-role="content"] { margin-inline: auto; }
+.tile--center .tile-hero__content p { margin-inline: auto; }
+.tile--center .tile-hero__actions,
+.tile--center [data-role="actions"] { justify-content: center; }
+.tile--center .tile-hero__grid { justify-items: center; }
+.tile--end { text-align: right; }
+.tile--end .tile-hero__actions,
+.tile--end [data-role="actions"] { justify-content: flex-end; }
+
+/* Buttons that should sit on the baseline of their row, regardless of how much
+   copy the neighbouring tiles carry. */
+.tile-card > [data-role="actions"],
+.tile-price > [data-role="actions"],
+.tile-feature > [data-role="actions"],
+.tile-team > [data-role="actions"] { margin-top: auto; }
+.tile-price > .btn, .tile-product > .btn { margin-top: auto; }
+/* Keep a row of tactile buttons optically level. */
+.tile-hero__actions > .btn, [data-role="actions"] > .btn { align-self: center; }
+
+/* --------------------------------------------------------------------------
+   6. Card tiles (content-card, feature, team, testimonial, product, price)
+   -------------------------------------------------------------------------- */
+.tile-card, .tile-feature, .tile-team, .tile-testimonial, .tile-price {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  border: 1px solid var(--color-surface-2);
+  box-shadow: var(--shadow-card);
+}
+.tile-card__media, .tile-feature__media { aspect-ratio: 16 / 9; overflow: hidden; border-radius: var(--radius-md); background: var(--color-surface-2); }
+.tile-card h3, .tile-feature h3, .tile-team h3, .tile-price h3 { margin: 0; }
+.tile-card p, .tile-feature p, .tile-testimonial p { margin: 0; color: var(--color-text-muted); }
+.tile-card__meta { font-weight: 600; color: var(--color-primary); }
+/* The amount was grouped with the card meta line above, so a $500 headline rendered
+   at caption size — the one thing on a pricing card that has to be readable at a
+   glance. It gets the display face and real weight. */
+.tile-price__amount {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   7. Contact / form tiles
+   -------------------------------------------------------------------------- */
+.tile-contact, .tile-contact-form {
+  padding: var(--space-8);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  border: 1px solid var(--color-surface-2);
+  box-shadow: var(--shadow-card);
+  display: grid;
+  gap: var(--space-4);
+}
+.tile-contact-form label { display: grid; gap: var(--space-1); font-weight: 600; font-size: .9rem; }
+.tile-contact-form input, .tile-contact-form textarea {
+  width: 100%;
+  padding: var(--space-3);
+  border: 1px solid var(--color-surface-2);
+  border-radius: var(--radius-md);
+  background: var(--color-background);
+  color: var(--color-text);
+  font: inherit;
+}
+.tile-contact-form input:focus, .tile-contact-form textarea:focus { outline: 2px solid var(--color-accent); outline-offset: 1px; }
+
+/* --------------------------------------------------------------------------
+   8. Footer tile
+   -------------------------------------------------------------------------- */
+.tile-footer {
+  border-top: 1px solid var(--color-surface-2);
+  padding: var(--space-12) 0 var(--space-8);
+  display: grid;
+  gap: var(--space-8);
+  color: var(--color-text-muted);
+}
+.tile-footer a { color: var(--color-text); text-decoration: none; }
+.tile-footer a:hover { color: var(--color-accent); }
+.tile-footer__brand { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: var(--color-text); }
+.tile-footer__cols { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); align-items: center; }
+.tile-footer__col h4 { font-size: .85rem; text-transform: uppercase; letter-spacing: .06em; color: var(--color-text-muted); }
+.tile-footer__legal { font-size: .85rem; border-top: 1px solid var(--color-surface-2); padding-top: var(--space-4); display: flex; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap; }
+
+/* ---- variant: simple ------------------------------------------------------
+   The full footer cut down to one row — brand and links side by side, legal
+   underneath. Same content, roughly half the height, for a site whose footer is
+   a formality rather than a navigation surface. */
+.tile-footer.tile-footer--simple {
+  padding: var(--space-8) 0 var(--space-6);
+  gap: var(--space-5);
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+.tile-footer.tile-footer--simple .tile-footer__legal {
+  border-top: 0;
+  padding-top: 0;
+  grid-column: 1 / -1;
+  justify-content: flex-start;
+  gap: var(--space-5);
+}
+
+/* ---- variant: minimal -----------------------------------------------------
+   The legal line and nothing else, centred.
+
+   The brand and the links stay in the DOM and are hidden by clip, exactly as the
+   minimal nav does, because a footer is a crawl path: removing a site's link
+   destinations from the served HTML to make it look tidy costs real SEO. Hidden
+   is not the same as absent, and check-site still sees them. */
+.tile-footer.tile-footer--minimal {
+  padding: var(--space-6) 0;
+  gap: 0;
+  text-align: center;
+}
+.tile-footer.tile-footer--minimal > div:first-child,
+.tile-footer.tile-footer--minimal .tile-footer__cols {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap;
+  padding: 0; margin: 0; border: 0;
+}
+.tile-footer.tile-footer--minimal .tile-footer__legal {
+  border-top: 0;
+  padding-top: 0;
+  justify-content: center;
+}
+
+/* --------------------------------------------------------------------------
+   9. CTA band tile
+   -------------------------------------------------------------------------- */
+.tile-cta { display: grid; }
+.tile-cta__inner { display: grid; gap: var(--space-4); }
+.tile-cta--center .tile-cta__inner { text-align: center; justify-items: center; }
+.tile-cta--center .tile-hero__actions { justify-content: center; }
+
+/* --------------------------------------------------------------------------
+   10. Announcement strip
+   -------------------------------------------------------------------------- */
+.tile-announcement { text-align: center; font-size: .85rem; font-weight: 500; padding: var(--space-2) var(--space-4); background: var(--color-accent); color: var(--color-on-accent); }
+
+/* --------------------------------------------------------------------------
+   11. Content/speciality tiles
+   -------------------------------------------------------------------------- */
+
+/* Media & video */
+.tile-media { display: grid; gap: var(--space-2); }
+.tile-media figcaption { font-size: .85rem; color: var(--color-text-muted); }
+.tile-video { aspect-ratio: 16/9; position: relative; overflow: hidden; border-radius: var(--radius-lg); background: var(--color-media-void); }
+.tile-video__placeholder { position: absolute; inset: 0; display: grid; place-items: center; color: var(--color-on-media); font-weight: 600; cursor: pointer; background: var(--scrim-media); }
+
+/* Gallery */
+.tile-gallery { display: grid; gap: var(--space-4); }
+.tile-gallery .media { border-radius: var(--radius-md); }
+
+/* Team */
+.tile-team__links { display: flex; gap: var(--space-2); }
+.tile-team__links a { display: inline-grid; place-items: center; width: 32px; height: 32px; border-radius: var(--radius-sm); border: 1px solid var(--color-surface-2); text-decoration: none; color: var(--color-text); }
+
+/* Quote */
+.tile-quote { padding: var(--space-6); border-left: 4px solid var(--color-accent); background: var(--color-surface); border-radius: var(--radius-lg); font-family: var(--font-display); font-size: 1.25rem; }
+.tile-quote blockquote { margin: 0; }
+.tile-quote figcaption { margin-top: var(--space-3); font-family: var(--font-sans); font-size: .9rem; color: var(--color-text-muted); }
+
+/* Product */
+.tile-product { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-5); border: 1px solid var(--color-surface-2); border-radius: var(--radius-lg); background: var(--color-surface); }
+.tile-product__meta { display: flex; justify-content: space-between; gap: var(--space-2); }
+.tile-product .btn { width: 100%; }
+
+/* Menu */
+.tile-menu ul { list-style: none; padding: 0; margin: 0; }
+.tile-menu li[data-role="item"] { display: flex; justify-content: space-between; gap: var(--space-4); padding: var(--space-2) 0; border-bottom: 1px dashed var(--color-surface-2); }
+
+/* FAQ */
+.tile-faq details { border: 1px solid var(--color-surface-2); border-radius: var(--radius-md); padding: var(--space-3) var(--space-4); }
+.tile-faq details + details { margin-top: var(--space-2); }
+.tile-faq summary { cursor: pointer; font-weight: 600; }
+.tile-faq details[open] summary { color: var(--color-primary); }
+
+/* Social */
+.tile-social { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+
+/* Map */
+.tile-map__canvas { aspect-ratio: 16 / 9; border-radius: var(--radius-lg); overflow: hidden; background: var(--color-surface-2); }
+
+/* Search */
+.tile-search { display: grid; gap: var(--space-3); }
+.tile-search__form { display: flex; gap: var(--space-2); }
+.tile-search__form input { flex: 1; padding: var(--space-3); border: 1px solid var(--color-surface-2); border-radius: var(--radius-md); background: var(--color-background); color: var(--color-text); }
+.tile-search__results { display: grid; gap: var(--space-1); }
+.tile-search__result { display: block; padding: var(--space-2); border-radius: var(--radius-sm); text-decoration: none; color: var(--color-text); }
+.tile-search__result:hover { background: var(--color-surface-2); }
+
+/* Event / calendar */
+.tile-event { padding: var(--space-6); background: var(--color-surface); border: 1px solid var(--color-surface-2); border-radius: var(--radius-lg); display: grid; gap: var(--space-3); }
+
+/* --------------------------------------------------------------------------
+   12. Code / snippet tile
+   -------------------------------------------------------------------------- */
+.tile-code { display: grid; gap: var(--space-2); }
+.tile-code h3 { margin: 0; font-family: var(--font-sans); font-size: .8rem; text-transform: uppercase; letter-spacing: .07em; color: var(--color-text-muted); }
+.tile-code pre {
+  margin: 0;
+  padding: var(--space-4);
+  overflow-x: auto;
+  background: var(--color-surface-2);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 12%, transparent);
+  border-radius: var(--radius-lg);
+}
+.tile-code code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: .82rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  white-space: pre;
+  tab-size: 2;
+}
+/* Darkened toward the page background rather than toward black, so it stays a
+   token expression and follows a re-theme. */
+[data-theme="dark"] .tile-code pre { background: color-mix(in srgb, var(--color-surface-2) 78%, var(--color-background)); }
+/* --------------------------------------------------------------------------
+   13. Compact Keywords tiles (SEO / bottom-of-funnel)
+
+   Same container rule as the hero: the tile root is the CONTAINER, so an
+   `@container` query can never match it — .tile-keyword-landing__grid is the
+   element that reflows.
+   -------------------------------------------------------------------------- */
+
+/* Keyword landing — one compact keyword per page */
+.tile-keyword-landing { display: grid; gap: var(--space-6); padding: var(--space-12) 0; }
+.tile-keyword-landing__grid { display: grid; gap: var(--space-8); align-items: start; }
+.tile-keyword-landing__content { max-width: 70ch; }
+.tile-keyword-landing__content h1 {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  margin: 0 0 var(--space-4);
+  line-height: 1.15;
+}
+.tile-keyword-landing__content [data-role="body"] {
+  font-size: var(--text-lead);
+  color: var(--color-text-muted);
+}
+.tile-keyword-landing__content [data-role="body"] p { margin: 0 0 var(--space-4); }
+.tile-keyword-landing__content [data-role="body"] p:last-child { margin-bottom: 0; }
+.tile-keyword-landing__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+.tile-keyword-landing__media { margin: 0; }
+.tile-keyword-landing__media figcaption {
+  margin-top: var(--space-2);
+  font-size: .85rem;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+/* No image configured -> no empty box. An unset slot ships src="" (that is what
+   keeps the markup a valid contract), so "configured" means a non-empty src. */
+.tile-keyword-landing__media:not(:has(img[src]:not([src=""]))) { display: none; }
+
+.tile-keyword-landing__proof {
+  margin: 0;
+  padding: var(--space-6);
+  border-left: 4px solid var(--color-accent);
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+}
+.tile-keyword-landing__proof p { margin: 0; }
+.tile-keyword-landing__proof footer {
+  margin-top: var(--space-3);
+  font-family: var(--font-sans);
+  font-size: .9rem;
+  color: var(--color-text-muted);
+  font-style: normal;
+}
+/* The proof quote is optional too — hide the block rather than leave an empty rule. */
+.tile-keyword-landing__proof:not(:has([data-role="quote"]:not(:empty))) { display: none; }
+
+@container (min-width: 45rem) {
+  .tile-keyword-landing__grid:has(img[src]:not([src=""])) {
+    grid-template-columns: 1.1fr .9fr;
+  }
+}
+
+/* Compact keywords index — the hub of bottom-of-funnel pages */
+.tile-compact-keywords { display: grid; gap: var(--space-6); }
+.tile-compact-keywords__intro { max-width: 60ch; }
+.tile-compact-keywords__intro h2 { margin: 0 0 var(--space-2); }
+.tile-compact-keywords__intro p { margin: 0; color: var(--color-text-muted); }
+
+.tile-keyword-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  background: var(--color-surface);
+  border: 1px solid var(--color-surface-2);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+.tile-keyword-card h3 { margin: 0; font-size: 1.15rem; }
+.tile-keyword-card p { margin: 0; color: var(--color-text-muted); flex: 1; }
+.tile-keyword-card .btn { align-self: flex-start; margin-top: var(--space-2); }
+/* --------------------------------------------------------------------------
+   14. Local-traffic tiles (visit, today)
+   The plate is the CONTAINER; the __grid inside it is what reflows, because a
+   container query can never match its own element.
+   -------------------------------------------------------------------------- */
+.tile-visit { display: grid; gap: var(--space-6); padding: var(--space-10) 0; }
+.tile-visit__grid { display: grid; gap: var(--space-8); align-items: start; }
+.tile-visit__place h2 { margin: 0 0 var(--space-3); }
+.tile-visit__address {
+  font-style: normal;
+  font-size: var(--text-lead);
+  color: var(--color-text);
+  display: block;
+  max-width: 40ch;
+}
+.tile-visit__note { margin: var(--space-3) 0 0; color: var(--color-text-muted); }
+.tile-visit__actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-6); }
+
+.tile-visit__when h3 {
+  margin: 0 0 var(--space-3);
+  font-family: var(--font-sans);
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  color: var(--color-text-muted);
+}
+/* Filled by visit.js from site.business.openingHours. Hidden until it has an
+   answer, so a page with no content file simply does not show it. */
+.tile-visit__state {
+  display: inline-block;
+  margin: 0 0 var(--space-4);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-pill);
+  font-size: .8rem;
+  font-weight: 600;
+  background: var(--color-surface-2);
+  color: var(--color-text);
+}
+.tile-visit__state[data-open="true"] {
+  background: color-mix(in srgb, var(--color-primary) 14%, transparent);
+  color: var(--color-primary);
+}
+.tile-visit__state[hidden] { display: none; }
+
+.tile-visit__hours { list-style: none; margin: 0; padding: 0; }
+.tile-visit__hours li {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--color-surface-2);
+  font-variant-numeric: tabular-nums;
+}
+.tile-visit__hours li:last-child { border-bottom: 0; }
+
+@container (min-width: 45rem) {
+  .tile-visit__grid { grid-template-columns: 1.2fr .8fr; }
+}
+/* Products showcase — cards that link out to where the business already sells. */
+.tile-products { display: grid; gap: var(--space-6); }
+.tile-products__intro { max-width: 60ch; }
+.tile-products__intro h2 { margin: 0 0 var(--space-2); }
+.tile-products__intro p { margin: 0; color: var(--color-text-muted); }
+.tile-products__note { margin: 0; font-size: .85rem; color: var(--color-text-muted); }
+
+.tile-product-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-surface-2);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+.tile-product-card h3 { margin: 0; font-size: 1.05rem; }
+.tile-product-card__price {
+  margin: 0;
+  font-weight: 700;
+  color: var(--color-primary);
+  font-variant-numeric: tabular-nums;
+  flex: 1;
+}
+.tile-product-card .btn { align-self: flex-start; margin-top: var(--space-2); }

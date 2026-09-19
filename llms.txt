@@ -1,0 +1,61 @@
+# Nown S.I.T.E.S
+
+> Zero-dependency website framework. Native HTML, native CSS, vanilla JS — no build
+> step, no package manager. A site is a "plate" (background + grid) hosting modular
+> "tiles". Copy, theme and assets are data (content.json), editable in an admin
+> dashboard. S.I.T.E.S = Seamlessly Integrated Technology Enabling Success.
+
+Start here: AGENTS.md — the operating manual (rules, workflow, contracts, checklist).
+Then docs/SPEC.md — the normative standard (MUST/SHOULD, conformance levels L1–L4).
+
+## Two machines / two agent harnesses
+
+## Build a site (workflow)
+- docs/INTAKE-FORM.md — gather everything needed (DIY, agency, or agent)
+- docs/BLUEPRINT-FORMAT.md — authoring format (markdown, one section per tile)
+- tools/blueprint.mjs — compile blueprint.md → content.json
+- tools/check-site.mjs — static linter: pages vs content file, links, assets (no browser)
+- docs/MODULE-SPEC.md — tile naming/CSS/JS/data contracts + catalog + checklist
+- docs/ARCHITECTURE.md — plate/tile model, tokens, grid math, container queries
+
+## Runtime contracts
+- docs/CONTENT-MODEL.md — content file, admin dashboard, storage adapters
+- docs/THEME-ENGINE.md — light/dark palettes, switcher, admin-editable tokens
+- docs/ASSETS.md — images: repo assets or Firebase Storage token URLs
+- docs/INTEGRATIONS.md — blocks/adapters/recipes: auth, payments, forms, AI
+- docs/DEPLOYMENT.md — Firebase default stack, rules, alternatives
+
+## Machine-readable
+- ai-skill/sites-schema.json — JSON Schema for the site manifest / content file
+- ai-skill/prompt-instructions.md — drop-in system prompt for any agent
+- src/js/tile-registry.js — the editable fields per tile type
+
+## Build it by hand (no AI, no build step)
+- templates/plate.html — the starter page: copy it and paste tiles into <main>
+- templates/TILE-KIT.md — every tile's markup + content entry, ready to copy
+- templates/README.md — the four-step loop, deploy steps, and a guide for people
+  coming from drag-and-drop website builders
+
+## The framework's own website (self-referential demo)
+- site/public/index.html — the framework site, built with the framework
+- site/public/tiles.html — the tile gallery: every tile rendered live from one content file
+- site/public/content.json — the site's content/theme/assets
+- site/blueprint.md — its authoring source
+- tools/sync-site-runtime.sh — copy src/ into the site's public dir
+
+## Reference implementation
+- src/css/nown-plate.css — design tokens, plate, auto-fit grid, theming
+- src/css/nown-tiles.css — core tile styles
+- src/js/sites.js — tile init registry
+- src/js/sites-content.js — binder: draws copy from the content file
+- src/js/sites-theme.js — theme engine
+- src/js/sites-assets.js — asset adapters
+- src/js/sites-adapters.js — storage adapters (local/git/firebase)
+- src/js/sites-admin.js — admin dashboard
+- src/modules/**/*.html — copy-able tile markup
+- examples/prototype-template.html — a full working page
+- examples/nowndigital.blueprint.md + .content.json — a complete worked example
+
+## Optional
+- docs/AI-HARNESS.md — how AI agents should generate S.I.T.E.S sites
+- docs/ROADMAP.md — protocol site + programmatic/full builders (long-term)

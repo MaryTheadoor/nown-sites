@@ -1,0 +1,23 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Node (should never be needed, but just in case)
+node_modules/
+package-lock.json
+
+# Build output (no build step, but ignore any stray generated dirs)
+dist/
+out/
+build/
+
+# Local env / secrets
+.env
+.env.*
+*.local
+
+# Firebase CLI local cache (deploy metadata), created by `firebase deploy`.
+.firebase/

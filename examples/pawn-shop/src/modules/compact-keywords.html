@@ -1,0 +1,25 @@
+<!-- compact-keywords tile — the hub: one card per compact-keyword landing page.
+     The static card beside the <template> is what makes the hub readable with
+     JavaScript disabled, and what a crawler follows to reach every landing page. -->
+<section class="tile tile-compact-keywords" data-tile="compact-keywords" data-tile-id="compact-keywords-1">
+  <div class="tile-compact-keywords__intro">
+    <h2 data-role="title">What you need, found fast</h2>
+    <p data-role="intro">One page per search, so you land on the answer instead of a home page.</p>
+  </div>
+  <div class="sites-grid" data-role="items">
+        <!-- placeholder: replaced when items are supplied -->
+    <article class="tile tile-keyword-card">
+      <h3 data-role="keyword">Sell used guitars in Denver</h3>
+      <p data-role="description">Cash offer within 48 hours.</p>
+      <a class="btn btn-ghost" data-role="action"><span data-role="label">Learn more</span></a>
+    </article>
+
+    <template>
+      <article class="tile tile-keyword-card">
+        <h3 data-role="keyword"></h3>
+        <p data-role="description"></p>
+        <a class="btn btn-ghost" data-role="action"><span data-role="label">Learn more</span></a>
+      </article>
+    </template>
+  </div>
+</section>

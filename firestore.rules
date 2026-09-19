@@ -1,0 +1,46 @@
+rules_version = '2';
+
+// S.I.T.E.S Firestore rules (OPTIONAL — used only for the draft→publish workflow).
+//
+// Default deployment keeps content in Storage as a static file. If you opt into
+// Firestore (see docs/DEPLOYMENT.md §5), the editable draft lives in `sites/{siteId}`:
+//   - public read  → the published content
+//   - admin write  → only the owner may edit
+//
+// The `admin` custom claim is set once with the Admin SDK:
+//   getAuth().setCustomUserClaims(uid, { admin: true })
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAdmin() {
+      return request.auth != null
+          && request.auth.token.email_verified == true
+          && request.auth.token.admin == true;
+    }
+
+    // Editable content draft: one doc per site.
+    //
+    // There is deliberately NO nested wildcard here. Firestore ORs every matching
+    // rule, so a recursive child like `match /{document=**}` with `allow read: if
+    // true` would ALSO match `sites/{siteId}/admin` — a public rule silently
+    // overriding a narrower admin-only one, with no error and nothing in the console
+    // to notice. That is not hypothetical: it is the documented cause of an incident
+    // in a sibling project, where an unauthenticated GET returned 200 on an
+    // admin-only document.
+    //
+    // This file stores ONE document per site (docs/DEPLOYMENT.md §5), so nothing
+    // nested is needed. Anything added below `sites/{siteId}` falls through to the
+    // default-deny at the bottom of this file, which is the safe default: a new
+    // subcollection starts private and has to be opened deliberately.
+    match /sites/{siteId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Default deny.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

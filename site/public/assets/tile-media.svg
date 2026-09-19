@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" role="img" aria-label="media">
+  <rect width="800" height="800" fill="#1B3A5C"/>
+  <circle cx="576" cy="224" r="176" fill="#2F6FED" opacity="0.9"/>
+  <rect x="80" y="576" width="336" height="12" rx="6" fill="#FFFFFF" opacity="0.55"/>
+  <rect x="80" y="624" width="480" height="12" rx="6" fill="#FFFFFF" opacity="0.32"/>
+  <text x="80" y="512" font-family="Georgia, serif" font-size="80" fill="#FFFFFF">media</text>
+</svg>

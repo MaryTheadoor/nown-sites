@@ -1,0 +1,36 @@
+rules_version = '2';
+
+// S.I.T.E.S content storage rules (Firebase Storage).
+//
+// The backend copy file (sites/{siteId}/content.json) is world-readable and
+// writable only by an authenticated admin. Everything else in a site's folder is
+// read-only to the public.
+//
+// The `admin` custom claim is set once with the Admin SDK:
+//   getAuth().setCustomUserClaims(uid, { admin: true })
+// For a single-owner site you may instead match on email:
+//   allow write: if request.auth != null && request.auth.token.email == 'you@example.com';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // The published content file — public read, admin write.
+    match /sites/{siteId}/content.json {
+      allow read: if true;
+      allow write: if request.auth != null
+                   && request.auth.token.email_verified == true
+                   && request.auth.token.admin == true;
+    }
+
+    // Anything else under a site folder (assets, uploads) — public read, no client write.
+    match /sites/{siteId}/{allPaths=**} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // Default deny.
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

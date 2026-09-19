@@ -1,0 +1,618 @@
+{
+  "$schema": "../ai-skill/sites-schema.json",
+  "site": {
+    "name": "Austin Gold & Pawn",
+    "baseUrl": "https://austingoldpawn.example.com",
+    "description": "Austin's trusted pawn shop for guitars, gold jewelry, electronics and tools. Same-day cash loans and sales with no appointment needed.",
+    "lang": "en",
+    "layout": {
+      "mode": "cols"
+    },
+    "seo": {
+      "title": "Austin Gold & Pawn — Cash Loans & Buying in Austin, TX",
+      "description": "Same-day cash for guitars, gold, electronics and tools. No credit check loans. Visit Austin Gold & Pawn on E 6th St.",
+      "image": "/assets/og-image.png",
+      "pages": {
+        "/pawn-shop-that-buys-electronics-in-austin-tx.html": {
+          "title": "Pawn shop that buys electronics in Austin, TX",
+          "description": "Same-day cash for phones, laptops, consoles and cameras. No credit check loans at Austin Gold & Pawn."
+        },
+        "/pawn-shop-that-buys-gold-jewelry-in-austin-tx.html": {
+          "title": "Pawn shop that buys gold jewelry in Austin, TX",
+          "description": "Fair appraisals and same-day cash for gold jewelry, rings and coins at Austin Gold & Pawn."
+        }
+      }
+    },
+    "business": {
+      "type": "PawnShop",
+      "name": "Austin Gold & Pawn",
+      "telephone": "+1-512-555-0199",
+      "priceRange": "$$",
+      "address": {
+        "streetAddress": "1200 E 6th St",
+        "addressLocality": "Austin",
+        "addressRegion": "TX",
+        "addressCountry": "US"
+      },
+      "openingHours": [
+        "Mo-Fr 09:00-19:00",
+        "Sa 10:00-18:00",
+        "Su 12:00-17:00"
+      ]
+    }
+  },
+  "theme": {
+    "defaultTheme": "system",
+    "colors": {
+      "background": "#F7F8FA",
+      "surface": "#FFFFFF",
+      "surface-2": "#ECEEF3",
+      "text": "#14161A",
+      "text-muted": "#5B6472",
+      "primary": "#1B3A5C",
+      "primary-deep": "#12283F",
+      "accent": "#D97706",
+      "accent-deep": "#B45309",
+      "on-accent": "#FFFFFF",
+      "glass": "rgba(255,255,255,.72)",
+      "glass-border": "rgba(228,232,240,.75)",
+      "dock": "rgba(255,255,255,.90)",
+      "dock-border": "rgba(228,232,240,.80)"
+    },
+    "dark": {
+      "background": "#0B0F17",
+      "surface": "#131A24",
+      "surface-2": "#1E2836",
+      "text": "#E7ECF3",
+      "text-muted": "#93A1B5",
+      "primary": "#6EA8FF",
+      "accent": "#E68A00",
+      "glass": "rgba(19,26,36,.70)",
+      "glass-border": "rgba(110,168,255,.18)",
+      "dock": "rgba(19,26,36,.90)",
+      "dock-border": "rgba(110,168,255,.20)"
+    },
+    "fonts": {
+      "sans": "system-ui, -apple-system, \\\"Segoe UI\\\", Roboto, sans-serif",
+      "display": "Georgia, \\\"Times New Roman\\\", serif"
+    },
+    "radii": {
+      "md": "0.75rem",
+      "lg": "1rem",
+      "xl": "1.5rem"
+    }
+  },
+  "nav": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Services",
+      "href": "/services.html"
+    },
+    {
+      "label": "Contact",
+      "href": "/contact.html"
+    }
+  ],
+  "content": [
+    {
+      "id": "chrome-announcement",
+      "type": "announcement",
+      "config": {
+        "text": "Same-day cash loans — no appointment needed. Open 7 days a week."
+      }
+    },
+    {
+      "id": "home-hero",
+      "type": "hero",
+      "config": {
+        "headline": "Fast cash loans and great deals in Austin.",
+        "body": "Austin Gold & Pawn buys, sells and loans on guitars, gold jewelry, electronics and tools.\nWalk in with an item, walk out with cash — no credit check, no hidden fees.",
+        "actions": [
+          {
+            "label": "Get a quote",
+            "href": "/contact.html",
+            "style": "gold"
+          },
+          {
+            "label": "View services",
+            "href": "/services.html",
+            "style": "ghost"
+          }
+        ]
+      }
+    },
+    {
+      "id": "home-services",
+      "type": "compact-keywords",
+      "config": {
+        "title": "Popular searches",
+        "intro": "Find the exact pawn shop service you need in Austin, TX. Each page matches a real search so you land on the answer, not a generic home page.",
+        "items": [
+          {
+            "keyword": "Pawn shop that buys guitars in Austin, TX",
+            "description": "Same-day cash for electric, acoustic and vintage guitars.",
+            "href": "/pawn-shop-that-buys-guitars-in-austin-tx.html",
+            "label": "Learn more"
+          },
+          {
+            "keyword": "Pawn shop that buys gold jewelry in Austin, TX",
+            "description": "Get a fair appraisal and cash for gold jewelry today.",
+            "href": "/pawn-shop-that-buys-gold-jewelry-in-austin-tx.html",
+            "label": "Learn more"
+          },
+          {
+            "keyword": "Pawn shop that buys electronics in Austin, TX",
+            "description": "No-credit-check loans and same-day cash for electronics.",
+            "href": "/pawn-shop-that-buys-electronics-in-austin-tx.html",
+            "label": "Learn more"
+          },
+          {
+            "keyword": "Pawn shop that buys tools in Austin, TX",
+            "description": "Shop tested power tools and hand tools for less than retail.",
+            "href": "/pawn-shop-that-buys-tools-in-austin-tx.html",
+            "label": "Learn more"
+          }
+        ]
+      },
+      "layout": {
+        "span": 12
+      }
+    },
+    {
+      "id": "home-why",
+      "type": "feature",
+      "config": {
+        "title": "Why Austin Gold & Pawn",
+        "items": [
+          {
+            "title": "Same-day cash",
+            "body": "Walk in with your item, walk out with cash. Most appraisals take under 15 minutes."
+          },
+          {
+            "title": "No credit check loans",
+            "body": "Your item is the collateral. No credit report, no application, no hassle."
+          },
+          {
+            "title": "Expert appraisals",
+            "body": "Our team knows guitars, gold, electronics and tools — so you get a fair price."
+          }
+        ]
+      },
+      "layout": {
+        "span": 12
+      }
+    },
+    {
+      "id": "home-visit",
+      "type": "visit",
+      "config": {
+        "headline": "Visit us on East 6th",
+        "address": "1200 E 6th St, Austin, TX 78702",
+        "note": "Free parking in the rear. We buy, sell and lend seven days a week.",
+        "actions": [
+          {
+            "label": "Get directions",
+            "href": "https://www.google.com/maps/dir/?api=1&destination=1200+E+6th+St+Austin+TX+78702",
+            "style": "gold"
+          },
+          {
+            "label": "Call (512) 555-0199",
+            "href": "tel:+15125550199",
+            "style": "ghost"
+          }
+        ],
+        "hoursTitle": "Opening hours",
+        "hours": "Mon–Fri 9:00–19:00\nSat 10:00–18:00\nSun 12:00–17:00"
+      },
+      "layout": {
+        "span": 7,
+        "spanSm": 6
+      }
+    },
+    {
+      "id": "home-products",
+      "type": "products",
+      "config": {
+        "title": "In stock right now",
+        "intro": "A few things on the floor this week. Links open our online store — or just come in.",
+        "items": [
+          {
+            "title": "Fender Stratocaster (Mexican, 2019)",
+            "price": "$549",
+            "status": "In store",
+            "href": "https://square.link/u/example-strat",
+            "label": "View on our store",
+            "alt": "A sunburst Fender Stratocaster on a stand"
+          },
+          {
+            "title": "Makita 18V drill kit",
+            "price": "$65",
+            "href": "https://square.link/u/example-drill",
+            "label": "View on our store",
+            "alt": "A cordless drill in its case"
+          },
+          {
+            "title": "14k gold rope chain, 22in",
+            "price": "$410",
+            "href": "https://square.link/u/example-chain",
+            "label": "View on our store",
+            "alt": "A gold chain on a display pad"
+          }
+        ],
+        "note": "Prices change fast. Call to confirm before you drive over."
+      },
+      "layout": {
+        "span": 5,
+        "spanSm": 6
+      }
+    },
+    {
+      "id": "chrome-footer",
+      "type": "footer",
+      "config": {
+        "brand": "Austin Gold & Pawn",
+        "tagline": "Cash loans and great deals in Austin since 2010.",
+        "links": [
+          {
+            "label": "Home",
+            "href": "/"
+          },
+          {
+            "label": "Services",
+            "href": "/services.html"
+          },
+          {
+            "label": "Contact",
+            "href": "/contact.html"
+          }
+        ],
+        "copyright": "© 2026 Austin Gold & Pawn"
+      }
+    },
+    {
+      "id": "services-hero",
+      "type": "hero",
+      "config": {
+        "headline": "Everything we buy, sell and loan on.",
+        "body": "Browse the services that match what you actually searched for. Every page below is written for one specific need.",
+        "actions": [
+          {
+            "label": "Contact us",
+            "href": "/contact.html",
+            "style": "gold"
+          }
+        ]
+      },
+      "page": "/services.html"
+    },
+    {
+      "id": "pawn-shop-compact-keywords",
+      "type": "compact-keywords",
+      "config": {
+        "title": "Pawn Shop services in Austin, TX",
+        "intro": "Find the exact pawn shop service you need in Austin, TX. Each page targets a specific search so you land on the answer, not a generic home page.",
+        "items": [
+          {
+            "keyword": "Pawn Shop that buys guitars in Austin, TX",
+            "description": "Austin Gold & Pawn pays cash for guitars today — no appointment needed.",
+            "href": "/pawn-shop-that-buys-guitars-in-austin-tx.html",
+            "label": "Learn more"
+          },
+          {
+            "keyword": "Pawn Shop that buys gold jewelry in Austin, TX",
+            "description": "Austin Gold & Pawn pays cash for gold jewelry today — no appointment needed.",
+            "href": "/pawn-shop-that-buys-gold-jewelry-in-austin-tx.html",
+            "label": "Learn more"
+          },
+          {
+            "keyword": "Pawn Shop that buys electronics in Austin, TX",
+            "description": "Austin Gold & Pawn pays cash for electronics today — no appointment needed.",
+            "href": "/pawn-shop-that-buys-electronics-in-austin-tx.html",
+            "label": "Learn more"
+          },
+          {
+            "keyword": "Pawn Shop that buys tools in Austin, TX",
+            "description": "Austin Gold & Pawn pays cash for tools today — no appointment needed.",
+            "href": "/pawn-shop-that-buys-tools-in-austin-tx.html",
+            "label": "Learn more"
+          },
+          {
+            "keyword": "Sell guitars near me in Austin",
+            "description": "Get a fair offer and same-day cash when you sell guitars to Austin Gold & Pawn.",
+            "href": "/sell-guitars-near-me-in-austin.html",
+            "label": "Learn more"
+          },
+          {
+            "keyword": "Sell gold jewelry near me in Austin",
+            "description": "Get a fair offer and same-day cash when you sell gold jewelry to Austin Gold & Pawn.",
+            "href": "/sell-gold-jewelry-near-me-in-austin.html",
+            "label": "Learn more"
+          },
+          {
+            "keyword": "Sell electronics near me in Austin",
+            "description": "Get a fair offer and same-day cash when you sell electronics to Austin Gold & Pawn.",
+            "href": "/sell-electronics-near-me-in-austin.html",
+            "label": "Learn more"
+          },
+          {
+            "keyword": "Sell tools near me in Austin",
+            "description": "Get a fair offer and same-day cash when you sell tools to Austin Gold & Pawn.",
+            "href": "/sell-tools-near-me-in-austin.html",
+            "label": "Learn more"
+          },
+          {
+            "keyword": "Buy used guitars in Austin, TX",
+            "description": "Shop tested, warrantied guitars at Austin Gold & Pawn for less than retail.",
+            "href": "/buy-used-guitars-in-austin-tx.html",
+            "label": "Learn more"
+          },
+          {
+            "keyword": "Buy used gold jewelry in Austin, TX",
+            "description": "Shop tested, warrantied gold jewelry at Austin Gold & Pawn for less than retail.",
+            "href": "/buy-used-gold-jewelry-in-austin-tx.html",
+            "label": "Learn more"
+          },
+          {
+            "keyword": "Buy used electronics in Austin, TX",
+            "description": "Shop tested, warrantied electronics at Austin Gold & Pawn for less than retail.",
+            "href": "/buy-used-electronics-in-austin-tx.html",
+            "label": "Learn more"
+          },
+          {
+            "keyword": "Buy used tools in Austin, TX",
+            "description": "Shop tested, warrantied tools at Austin Gold & Pawn for less than retail.",
+            "href": "/buy-used-tools-in-austin-tx.html",
+            "label": "Learn more"
+          }
+        ]
+      },
+      "page": "/services.html"
+    },
+    {
+      "id": "pawn-shop-that-buys-guitars-in-austin-tx",
+      "type": "keyword-landing",
+      "config": {
+        "headline": "Pawn Shop that buys guitars in Austin, TX",
+        "body": "You searched \"Pawn Shop that buys guitars in Austin, TX\" because you have guitars to move and you want a number today, not a listing that sits for three weeks. Online marketplaces mean photographing everything, answering messages from people who never show up, and meeting strangers with cash. Austin Gold & Pawn replaces that with one visit.\n\nThe expensive version of this problem is time. Every extra week of waiting is a week the guitars sits unused, and a \"quick sale\" that turns into a month of messages usually ends with someone accepting less than they wanted. Getting a real number in one visit is what stops that slide.\n\nHere is exactly what happens. 1. Bring the guitars in during opening hours — no appointment needed. 2. We appraise it in front of you and explain how the number was reached. 3. You get a cash offer on the spot. No obligation to accept it. 4. Browse tested, warrantied guitars on the floor at prices below new retail. We are open Mo-Fr 09:00-19:00, Sa 10:00-18:00, Su 12:00-17:00.\n\nWhat we buy: guitars, and [list the other categories you buy]. Condition matters, but \"used\" is not a disqualifier — working condition and a clean ownership history are what set the number. Bring photo ID and the item itself; if it has a serial number, a receipt or original packaging, bring that too, because documented provenance is the difference between a low offer and a good one.\n\nWhat we are known for locally: same-day cash; no credit check loans; expert appraisals. [Add one concrete proof here — years in business, number of items bought, a customer line, a licence or accreditation.]\n\nCome in or call +1-512-555-0199 for an appraisal. There is no fee to be quoted, and no obligation to sell — if our number is not right for you, you keep the guitars and we part on good terms.",
+        "actions": [
+          {
+            "label": "Get a quote",
+            "href": "/contact.html",
+            "style": "gold"
+          }
+        ]
+      },
+      "page": "/pawn-shop-that-buys-guitars-in-austin-tx.html"
+    },
+    {
+      "id": "pawn-shop-that-buys-gold-jewelry-in-austin-tx",
+      "type": "keyword-landing",
+      "config": {
+        "headline": "Pawn Shop that buys gold jewelry in Austin, TX",
+        "body": "You searched \"Pawn Shop that buys gold jewelry in Austin, TX\" because you have gold jewelry to move and you want a number today, not a listing that sits for three weeks. Online marketplaces mean photographing everything, answering messages from people who never show up, and meeting strangers with cash. Austin Gold & Pawn replaces that with one visit.\n\nThe expensive version of this problem is time. Every extra week of waiting is a week the gold jewelry sits unused, and a \"quick sale\" that turns into a month of messages usually ends with someone accepting less than they wanted. Getting a real number in one visit is what stops that slide.\n\nHere is exactly what happens. 1. Bring the gold jewelry in during opening hours — no appointment needed. 2. We appraise it in front of you and explain how the number was reached. 3. You get a cash offer on the spot. No obligation to accept it. 4. Browse tested, warrantied gold jewelry on the floor at prices below new retail. We are open Mo-Fr 09:00-19:00, Sa 10:00-18:00, Su 12:00-17:00.\n\nWhat we buy: gold jewelry, and [list the other categories you buy]. Condition matters, but \"used\" is not a disqualifier — working condition and a clean ownership history are what set the number. Bring photo ID and the item itself; if it has a serial number, a receipt or original packaging, bring that too, because documented provenance is the difference between a low offer and a good one.\n\nWhat we are known for locally: same-day cash; no credit check loans; expert appraisals. [Add one concrete proof here — years in business, number of items bought, a customer line, a licence or accreditation.]\n\nCome in or call +1-512-555-0199 for an appraisal. There is no fee to be quoted, and no obligation to sell — if our number is not right for you, you keep the gold jewelry and we part on good terms.",
+        "actions": [
+          {
+            "label": "Get a quote",
+            "href": "/contact.html",
+            "style": "gold"
+          }
+        ]
+      },
+      "page": "/pawn-shop-that-buys-gold-jewelry-in-austin-tx.html"
+    },
+    {
+      "id": "pawn-shop-that-buys-electronics-in-austin-tx",
+      "type": "keyword-landing",
+      "config": {
+        "headline": "Pawn Shop that buys electronics in Austin, TX",
+        "body": "You searched \"Pawn Shop that buys electronics in Austin, TX\" because you have electronics to move and you want a number today, not a listing that sits for three weeks. Online marketplaces mean photographing everything, answering messages from people who never show up, and meeting strangers with cash. Austin Gold & Pawn replaces that with one visit.\n\nThe expensive version of this problem is time. Every extra week of waiting is a week the electronics sits unused, and a \"quick sale\" that turns into a month of messages usually ends with someone accepting less than they wanted. Getting a real number in one visit is what stops that slide.\n\nHere is exactly what happens. 1. Bring the electronics in during opening hours — no appointment needed. 2. We appraise it in front of you and explain how the number was reached. 3. You get a cash offer on the spot. No obligation to accept it. 4. Browse tested, warrantied electronics on the floor at prices below new retail. We are open Mo-Fr 09:00-19:00, Sa 10:00-18:00, Su 12:00-17:00.\n\nWhat we buy: electronics, and [list the other categories you buy]. Condition matters, but \"used\" is not a disqualifier — working condition and a clean ownership history are what set the number. Bring photo ID and the item itself; if it has a serial number, a receipt or original packaging, bring that too, because documented provenance is the difference between a low offer and a good one.\n\nWhat we are known for locally: same-day cash; no credit check loans; expert appraisals. [Add one concrete proof here — years in business, number of items bought, a customer line, a licence or accreditation.]\n\nCome in or call +1-512-555-0199 for an appraisal. There is no fee to be quoted, and no obligation to sell — if our number is not right for you, you keep the electronics and we part on good terms.",
+        "actions": [
+          {
+            "label": "Get a quote",
+            "href": "/contact.html",
+            "style": "gold"
+          }
+        ]
+      },
+      "page": "/pawn-shop-that-buys-electronics-in-austin-tx.html"
+    },
+    {
+      "id": "pawn-shop-that-buys-tools-in-austin-tx",
+      "type": "keyword-landing",
+      "config": {
+        "headline": "Pawn Shop that buys tools in Austin, TX",
+        "body": "You searched \"Pawn Shop that buys tools in Austin, TX\" because you have tools to move and you want a number today, not a listing that sits for three weeks. Online marketplaces mean photographing everything, answering messages from people who never show up, and meeting strangers with cash. Austin Gold & Pawn replaces that with one visit.\n\nThe expensive version of this problem is time. Every extra week of waiting is a week the tools sits unused, and a \"quick sale\" that turns into a month of messages usually ends with someone accepting less than they wanted. Getting a real number in one visit is what stops that slide.\n\nHere is exactly what happens. 1. Bring the tools in during opening hours — no appointment needed. 2. We appraise it in front of you and explain how the number was reached. 3. You get a cash offer on the spot. No obligation to accept it. 4. Browse tested, warrantied tools on the floor at prices below new retail. We are open Mo-Fr 09:00-19:00, Sa 10:00-18:00, Su 12:00-17:00.\n\nWhat we buy: tools, and [list the other categories you buy]. Condition matters, but \"used\" is not a disqualifier — working condition and a clean ownership history are what set the number. Bring photo ID and the item itself; if it has a serial number, a receipt or original packaging, bring that too, because documented provenance is the difference between a low offer and a good one.\n\nWhat we are known for locally: same-day cash; no credit check loans; expert appraisals. [Add one concrete proof here — years in business, number of items bought, a customer line, a licence or accreditation.]\n\nCome in or call +1-512-555-0199 for an appraisal. There is no fee to be quoted, and no obligation to sell — if our number is not right for you, you keep the tools and we part on good terms.",
+        "actions": [
+          {
+            "label": "Get a quote",
+            "href": "/contact.html",
+            "style": "gold"
+          }
+        ]
+      },
+      "page": "/pawn-shop-that-buys-tools-in-austin-tx.html"
+    },
+    {
+      "id": "sell-guitars-near-me-in-austin",
+      "type": "keyword-landing",
+      "config": {
+        "headline": "Sell guitars near me in Austin",
+        "body": "You searched \"Sell guitars near me in Austin\" because you have guitars to move and you want a number today, not a listing that sits for three weeks. Online marketplaces mean photographing everything, answering messages from people who never show up, and meeting strangers with cash. Austin Gold & Pawn replaces that with one visit.\n\nThe expensive version of this problem is time. Every extra week of waiting is a week the guitars sits unused, and a \"quick sale\" that turns into a month of messages usually ends with someone accepting less than they wanted. Getting a real number in one visit is what stops that slide.\n\nHere is exactly what happens. 1. Bring the guitars in during opening hours — no appointment needed. 2. We appraise it in front of you and explain how the number was reached. 3. You get a cash offer on the spot. No obligation to accept it. 4. Accept and leave with cash the same day. We are open Mo-Fr 09:00-19:00, Sa 10:00-18:00, Su 12:00-17:00.\n\nWhat is usually on the floor: guitars, and [list the other categories you stock]. Everything is checked before it goes out, and anything that does not pass does not get sold. Stock turns over quickly, so if you are looking for something specific, call ahead — we will tell you honestly whether it is in, and what we expect to have in this week.\n\nWhat we are known for locally: same-day cash; no credit check loans; expert appraisals. [Add one concrete proof here — years in business, number of items bought, a customer line, a licence or accreditation.]\n\nCome in or call +1-512-555-0199 and we will tell you whether we have what you need. Everything on the floor has been tested, and [state your real warranty or return policy here].",
+        "actions": [
+          {
+            "label": "Get a quote",
+            "href": "/contact.html",
+            "style": "gold"
+          }
+        ]
+      },
+      "page": "/sell-guitars-near-me-in-austin.html"
+    },
+    {
+      "id": "sell-gold-jewelry-near-me-in-austin",
+      "type": "keyword-landing",
+      "config": {
+        "headline": "Sell gold jewelry near me in Austin",
+        "body": "You searched \"Sell gold jewelry near me in Austin\" because you have gold jewelry to move and you want a number today, not a listing that sits for three weeks. Online marketplaces mean photographing everything, answering messages from people who never show up, and meeting strangers with cash. Austin Gold & Pawn replaces that with one visit.\n\nThe expensive version of this problem is time. Every extra week of waiting is a week the gold jewelry sits unused, and a \"quick sale\" that turns into a month of messages usually ends with someone accepting less than they wanted. Getting a real number in one visit is what stops that slide.\n\nHere is exactly what happens. 1. Bring the gold jewelry in during opening hours — no appointment needed. 2. We appraise it in front of you and explain how the number was reached. 3. You get a cash offer on the spot. No obligation to accept it. 4. Accept and leave with cash the same day. We are open Mo-Fr 09:00-19:00, Sa 10:00-18:00, Su 12:00-17:00.\n\nWhat is usually on the floor: gold jewelry, and [list the other categories you stock]. Everything is checked before it goes out, and anything that does not pass does not get sold. Stock turns over quickly, so if you are looking for something specific, call ahead — we will tell you honestly whether it is in, and what we expect to have in this week.\n\nWhat we are known for locally: same-day cash; no credit check loans; expert appraisals. [Add one concrete proof here — years in business, number of items bought, a customer line, a licence or accreditation.]\n\nCome in or call +1-512-555-0199 and we will tell you whether we have what you need. Everything on the floor has been tested, and [state your real warranty or return policy here].",
+        "actions": [
+          {
+            "label": "Get a quote",
+            "href": "/contact.html",
+            "style": "gold"
+          }
+        ]
+      },
+      "page": "/sell-gold-jewelry-near-me-in-austin.html"
+    },
+    {
+      "id": "sell-electronics-near-me-in-austin",
+      "type": "keyword-landing",
+      "config": {
+        "headline": "Sell electronics near me in Austin",
+        "body": "You searched \"Sell electronics near me in Austin\" because you have electronics to move and you want a number today, not a listing that sits for three weeks. Online marketplaces mean photographing everything, answering messages from people who never show up, and meeting strangers with cash. Austin Gold & Pawn replaces that with one visit.\n\nThe expensive version of this problem is time. Every extra week of waiting is a week the electronics sits unused, and a \"quick sale\" that turns into a month of messages usually ends with someone accepting less than they wanted. Getting a real number in one visit is what stops that slide.\n\nHere is exactly what happens. 1. Bring the electronics in during opening hours — no appointment needed. 2. We appraise it in front of you and explain how the number was reached. 3. You get a cash offer on the spot. No obligation to accept it. 4. Accept and leave with cash the same day. We are open Mo-Fr 09:00-19:00, Sa 10:00-18:00, Su 12:00-17:00.\n\nWhat is usually on the floor: electronics, and [list the other categories you stock]. Everything is checked before it goes out, and anything that does not pass does not get sold. Stock turns over quickly, so if you are looking for something specific, call ahead — we will tell you honestly whether it is in, and what we expect to have in this week.\n\nWhat we are known for locally: same-day cash; no credit check loans; expert appraisals. [Add one concrete proof here — years in business, number of items bought, a customer line, a licence or accreditation.]\n\nCome in or call +1-512-555-0199 and we will tell you whether we have what you need. Everything on the floor has been tested, and [state your real warranty or return policy here].",
+        "actions": [
+          {
+            "label": "Get a quote",
+            "href": "/contact.html",
+            "style": "gold"
+          }
+        ]
+      },
+      "page": "/sell-electronics-near-me-in-austin.html"
+    },
+    {
+      "id": "sell-tools-near-me-in-austin",
+      "type": "keyword-landing",
+      "config": {
+        "headline": "Sell tools near me in Austin",
+        "body": "You searched \"Sell tools near me in Austin\" because you have tools to move and you want a number today, not a listing that sits for three weeks. Online marketplaces mean photographing everything, answering messages from people who never show up, and meeting strangers with cash. Austin Gold & Pawn replaces that with one visit.\n\nThe expensive version of this problem is time. Every extra week of waiting is a week the tools sits unused, and a \"quick sale\" that turns into a month of messages usually ends with someone accepting less than they wanted. Getting a real number in one visit is what stops that slide.\n\nHere is exactly what happens. 1. Bring the tools in during opening hours — no appointment needed. 2. We appraise it in front of you and explain how the number was reached. 3. You get a cash offer on the spot. No obligation to accept it. 4. Accept and leave with cash the same day. We are open Mo-Fr 09:00-19:00, Sa 10:00-18:00, Su 12:00-17:00.\n\nWhat is usually on the floor: tools, and [list the other categories you stock]. Everything is checked before it goes out, and anything that does not pass does not get sold. Stock turns over quickly, so if you are looking for something specific, call ahead — we will tell you honestly whether it is in, and what we expect to have in this week.\n\nWhat we are known for locally: same-day cash; no credit check loans; expert appraisals. [Add one concrete proof here — years in business, number of items bought, a customer line, a licence or accreditation.]\n\nCome in or call +1-512-555-0199 and we will tell you whether we have what you need. Everything on the floor has been tested, and [state your real warranty or return policy here].",
+        "actions": [
+          {
+            "label": "Get a quote",
+            "href": "/contact.html",
+            "style": "gold"
+          }
+        ]
+      },
+      "page": "/sell-tools-near-me-in-austin.html"
+    },
+    {
+      "id": "buy-used-guitars-in-austin-tx",
+      "type": "keyword-landing",
+      "config": {
+        "headline": "Buy used guitars in Austin, TX",
+        "body": "You searched \"Buy used guitars in Austin, TX\" because you have guitars to move and you want a number today, not a listing that sits for three weeks. Online marketplaces mean photographing everything, answering messages from people who never show up, and meeting strangers with cash. Austin Gold & Pawn replaces that with one visit.\n\nThe expensive version of this problem is time. Every extra week of waiting is a week the guitars sits unused, and a \"quick sale\" that turns into a month of messages usually ends with someone accepting less than they wanted. Getting a real number in one visit is what stops that slide.\n\nHere is exactly what happens. 1. Bring the guitars in during opening hours — no appointment needed. 2. We appraise it in front of you and explain how the number was reached. 3. You get a cash offer on the spot. No obligation to accept it. 4. Accept and leave with cash the same day. We are open Mo-Fr 09:00-19:00, Sa 10:00-18:00, Su 12:00-17:00.\n\nWhat is usually on the floor: guitars, and [list the other categories you stock]. Everything is checked before it goes out, and anything that does not pass does not get sold. Stock turns over quickly, so if you are looking for something specific, call ahead — we will tell you honestly whether it is in, and what we expect to have in this week.\n\nWhat we are known for locally: same-day cash; no credit check loans; expert appraisals. [Add one concrete proof here — years in business, number of items bought, a customer line, a licence or accreditation.]\n\nCome in or call +1-512-555-0199 and we will tell you whether we have what you need. Everything on the floor has been tested, and [state your real warranty or return policy here].",
+        "actions": [
+          {
+            "label": "Get a quote",
+            "href": "/contact.html",
+            "style": "gold"
+          }
+        ]
+      },
+      "page": "/buy-used-guitars-in-austin-tx.html"
+    },
+    {
+      "id": "buy-used-gold-jewelry-in-austin-tx",
+      "type": "keyword-landing",
+      "config": {
+        "headline": "Buy used gold jewelry in Austin, TX",
+        "body": "You searched \"Buy used gold jewelry in Austin, TX\" because you have gold jewelry to move and you want a number today, not a listing that sits for three weeks. Online marketplaces mean photographing everything, answering messages from people who never show up, and meeting strangers with cash. Austin Gold & Pawn replaces that with one visit.\n\nThe expensive version of this problem is time. Every extra week of waiting is a week the gold jewelry sits unused, and a \"quick sale\" that turns into a month of messages usually ends with someone accepting less than they wanted. Getting a real number in one visit is what stops that slide.\n\nHere is exactly what happens. 1. Bring the gold jewelry in during opening hours — no appointment needed. 2. We appraise it in front of you and explain how the number was reached. 3. You get a cash offer on the spot. No obligation to accept it. 4. Accept and leave with cash the same day. We are open Mo-Fr 09:00-19:00, Sa 10:00-18:00, Su 12:00-17:00.\n\nWhat is usually on the floor: gold jewelry, and [list the other categories you stock]. Everything is checked before it goes out, and anything that does not pass does not get sold. Stock turns over quickly, so if you are looking for something specific, call ahead — we will tell you honestly whether it is in, and what we expect to have in this week.\n\nWhat we are known for locally: same-day cash; no credit check loans; expert appraisals. [Add one concrete proof here — years in business, number of items bought, a customer line, a licence or accreditation.]\n\nCome in or call +1-512-555-0199 and we will tell you whether we have what you need. Everything on the floor has been tested, and [state your real warranty or return policy here].",
+        "actions": [
+          {
+            "label": "Get a quote",
+            "href": "/contact.html",
+            "style": "gold"
+          }
+        ]
+      },
+      "page": "/buy-used-gold-jewelry-in-austin-tx.html"
+    },
+    {
+      "id": "buy-used-electronics-in-austin-tx",
+      "type": "keyword-landing",
+      "config": {
+        "headline": "Buy used electronics in Austin, TX",
+        "body": "You searched \"Buy used electronics in Austin, TX\" because you have electronics to move and you want a number today, not a listing that sits for three weeks. Online marketplaces mean photographing everything, answering messages from people who never show up, and meeting strangers with cash. Austin Gold & Pawn replaces that with one visit.\n\nThe expensive version of this problem is time. Every extra week of waiting is a week the electronics sits unused, and a \"quick sale\" that turns into a month of messages usually ends with someone accepting less than they wanted. Getting a real number in one visit is what stops that slide.\n\nHere is exactly what happens. 1. Bring the electronics in during opening hours — no appointment needed. 2. We appraise it in front of you and explain how the number was reached. 3. You get a cash offer on the spot. No obligation to accept it. 4. Accept and leave with cash the same day. We are open Mo-Fr 09:00-19:00, Sa 10:00-18:00, Su 12:00-17:00.\n\nWhat is usually on the floor: electronics, and [list the other categories you stock]. Everything is checked before it goes out, and anything that does not pass does not get sold. Stock turns over quickly, so if you are looking for something specific, call ahead — we will tell you honestly whether it is in, and what we expect to have in this week.\n\nWhat we are known for locally: same-day cash; no credit check loans; expert appraisals. [Add one concrete proof here — years in business, number of items bought, a customer line, a licence or accreditation.]\n\nCome in or call +1-512-555-0199 and we will tell you whether we have what you need. Everything on the floor has been tested, and [state your real warranty or return policy here].",
+        "actions": [
+          {
+            "label": "Get a quote",
+            "href": "/contact.html",
+            "style": "gold"
+          }
+        ]
+      },
+      "page": "/buy-used-electronics-in-austin-tx.html"
+    },
+    {
+      "id": "buy-used-tools-in-austin-tx",
+      "type": "keyword-landing",
+      "config": {
+        "headline": "Buy used tools in Austin, TX",
+        "body": "You searched \"Buy used tools in Austin, TX\" because you have tools to move and you want a number today, not a listing that sits for three weeks. Online marketplaces mean photographing everything, answering messages from people who never show up, and meeting strangers with cash. Austin Gold & Pawn replaces that with one visit.\n\nThe expensive version of this problem is time. Every extra week of waiting is a week the tools sits unused, and a \"quick sale\" that turns into a month of messages usually ends with someone accepting less than they wanted. Getting a real number in one visit is what stops that slide.\n\nHere is exactly what happens. 1. Bring the tools in during opening hours — no appointment needed. 2. We appraise it in front of you and explain how the number was reached. 3. You get a cash offer on the spot. No obligation to accept it. 4. Accept and leave with cash the same day. We are open Mo-Fr 09:00-19:00, Sa 10:00-18:00, Su 12:00-17:00.\n\nWhat is usually on the floor: tools, and [list the other categories you stock]. Everything is checked before it goes out, and anything that does not pass does not get sold. Stock turns over quickly, so if you are looking for something specific, call ahead — we will tell you honestly whether it is in, and what we expect to have in this week.\n\nWhat we are known for locally: same-day cash; no credit check loans; expert appraisals. [Add one concrete proof here — years in business, number of items bought, a customer line, a licence or accreditation.]\n\nCome in or call +1-512-555-0199 and we will tell you whether we have what you need. Everything on the floor has been tested, and [state your real warranty or return policy here].",
+        "actions": [
+          {
+            "label": "Get a quote",
+            "href": "/contact.html",
+            "style": "gold"
+          }
+        ]
+      },
+      "page": "/buy-used-tools-in-austin-tx.html"
+    },
+    {
+      "id": "contact-hero",
+      "type": "hero",
+      "config": {
+        "headline": "Get a quote today.",
+        "body": "Tell us what you have or what you need. We will reply with a quote or an invitation to bring the item in."
+      },
+      "page": "/contact.html"
+    },
+    {
+      "id": "contact-form",
+      "type": "contact-form",
+      "config": {
+        "title": "Send a message",
+        "provider": "formspree",
+        "endpoint": "https://formspree.io/f/YOUR_FORM_ID"
+      },
+      "page": "/contact.html"
+    },
+    {
+      "id": "contact-details",
+      "type": "contact",
+      "config": {
+        "headline": "Visit the shop",
+        "body": "We are on E 6th St with parking in the rear.",
+        "lines": [
+          {
+            "label": "Address",
+            "value": "1200 E 6th St, Austin, TX"
+          },
+          {
+            "label": "Phone",
+            "value": "(512) 555-0199",
+            "href": "tel:+15125550199"
+          },
+          {
+            "label": "Hours",
+            "value": "Mon–Fri 9–7, Sat 10–6, Sun 12–5"
+          }
+        ]
+      },
+      "page": "/contact.html"
+    }
+  ],
+  "integrations": {
+    "auth": "none",
+    "payments": "square",
+    "forms": "formspree",
+    "search": "none",
+    "analytics": "none",
+    "ai": "none"
+  }
+}

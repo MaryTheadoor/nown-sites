@@ -1,0 +1,27 @@
+<!-- nav-dock tile — floating pill navigation.
+     Place inside a fixed <header> wrapper; the dock itself is NOT position:fixed.
+     Links are site-configured (this is the canonical shape).
+     Register behavior via nav-dock.js (active link + theme toggle). -->
+<header class="site-header">
+  <!-- Optional announcement strip (omit to hide). -->
+  <div class="tile-announcement" data-tile="announcement">Nowndigital.app — Nown Digital</div>
+
+  <nav class="nav-dock" data-tile="nav-dock" data-tile-id="nav-dock-1" aria-label="Primary">
+    <a class="nav-dock-link active" aria-label="Home" href="/" data-role="link">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg><span>Home</span>
+    </a>
+    <a class="nav-dock-link" aria-label="Work" href="/work" data-role="link">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"/></svg><span>Work</span>
+    </a>
+    <a class="nav-dock-link" aria-label="Services" href="/services" data-role="link">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg><span>Services</span>
+    </a>
+    <a class="nav-dock-link" aria-label="About" href="/about" data-role="link">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><span>About</span>
+    </a>
+    <a class="nav-dock-link" aria-label="Contact" href="/contact" data-role="link">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg><span>Contact</span>
+    </a>
+    <button class="nav-dock-link nav-dock-theme" data-role="theme-toggle" aria-label="Toggle dark mode" type="button"><span>Theme</span></button>
+  </nav>
+</header>

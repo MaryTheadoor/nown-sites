@@ -1,0 +1,13 @@
+# Line endings.
+#
+# Without this file the working copy's line endings depend on the machine:
+# core.autocrlf=true (the default of a Windows Git install) rewrites every LF to
+# CRLF on checkout, while a macOS/Linux checkout keeps LF. That difference is not
+# cosmetic here — the blueprint compiler reads Markdown front matter, and a parser
+# written against bare LF silently discards the whole front matter (site identity,
+# theme tokens, nav) when it is handed CRLF. The same blueprint then compiles to a
+# named site on one machine and to "Untitled" with no palette on another.
+#
+# Markdown is therefore pinned to LF everywhere. The compiler also tolerates both
+# now, so this is defence in depth rather than the only guard.
+*.md text eol=lf

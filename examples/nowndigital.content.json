@@ -1,0 +1,289 @@
+{
+  "$schema": "../ai-skill/sites-schema.json",
+  "site": {
+    "name": "Nown Digital",
+    "baseUrl": "https://NownDigital.app",
+    "description": "Sovereign Internet Topology Engines for creators & business.",
+    "lang": "en",
+    "seo": {
+      "title": "Nown Digital | Your Vision, Built with Care.",
+      "description": "Sovereign Internet Topology Engines for creators and business. No agency traps, no perpetual subscriptions. We build it, you own it."
+    }
+  },
+  "theme": {
+    "defaultTheme": "system",
+    "colors": {
+      "background": "#FAF6F0",
+      "surface": "#FFFFFF",
+      "surface-2": "#F0EBE3",
+      "text": "#111827",
+      "text-muted": "#6B7280",
+      "primary": "#1E4D4F",
+      "accent": "#D97706",
+      "plum": "#935B8A",
+      "primary-deep": "#17393B",
+      "accent-deep": "#B45309",
+      "accent-deep-2": "#8A4703",
+      "plum-deep": "#5C3856",
+      "on-accent": "#FFFFFF",
+      "glass": "rgba(255,255,255,.70)",
+      "glass-border": "rgba(240,235,227,.70)",
+      "dock": "rgba(255,255,255,.88)",
+      "dock-border": "rgba(240,235,227,.80)"
+    },
+    "dark": {
+      "background": "#0F172A",
+      "surface": "#1E293B",
+      "surface-2": "#334155",
+      "text": "#E5E7EB",
+      "text-muted": "#94A3B8",
+      "primary": "#2A6B6E",
+      "accent": "#E68A00",
+      "primary-deep": "#17393B",
+      "accent-deep-2": "#7A4000",
+      "glass": "rgba(30,41,59,.65)",
+      "glass-border": "rgba(100,116,139,.20)",
+      "dock": "rgba(30,41,59,.88)",
+      "dock-border": "rgba(100,116,139,.25)"
+    },
+    "fonts": {
+      "sans": "system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+      "display": "Georgia, \"Times New Roman\", serif"
+    },
+    "radii": {
+      "md": "0.75rem",
+      "lg": "1rem",
+      "xl": "1.5rem"
+    }
+  },
+  "nav": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "About",
+      "href": "/about"
+    },
+    {
+      "label": "SITES",
+      "href": "/sites"
+    },
+    {
+      "label": "Services",
+      "href": "/services"
+    },
+    {
+      "label": "Portfolio",
+      "href": "/portfolio"
+    },
+    {
+      "label": "R&D",
+      "href": "/rd"
+    },
+    {
+      "label": "Apps",
+      "href": "https://apps.nown.digital/"
+    }
+  ],
+  "content": [
+    {
+      "id": "home-hero",
+      "type": "hero",
+      "config": {
+        "headline": "Your Vision, Built with Care.",
+        "body": "Sovereign Internet Topology Engines for Creators & Business.",
+        "actions": [
+          {
+            "label": "Get a Free Consultation",
+            "href": "https://calendly.com/example/free-consultation",
+            "style": "gold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "home-why",
+      "type": "feature",
+      "config": {
+        "title": "Our Why",
+        "items": [
+          {
+            "title": "True digital independence",
+            "body": "We empower entrepreneurs and creators to build powerful, professional websites without being trapped by high agency costs or perpetual subscriptions."
+          },
+          {
+            "title": "Powered by LazerFlow Intelligence",
+            "body": "Beyond static pages \u2014 we research the physics of information, including Information Substrate Theory (IST) and self-healing systems."
+          }
+        ],
+        "actions": [
+          {
+            "label": "Visit the R&D Lab",
+            "href": "/rd",
+            "style": "ghost"
+          }
+        ]
+      }
+    },
+    {
+      "id": "home-protocol",
+      "type": "feature",
+      "config": {
+        "title": "The Nown SITES Protocol",
+        "items": [
+          {
+            "title": "The Custom-Tailored Suit",
+            "body": "We don't do \"one-size-fits-all.\" We build a website that fits your business perfectly."
+          },
+          {
+            "title": "True Ownership",
+            "body": "Other platforms let you rent your website. We believe what you pay for should be yours. Once we build it, you own it."
+          }
+        ],
+        "actions": [
+          {
+            "label": "Learn About the Protocol",
+            "href": "/sites",
+            "style": "ghost"
+          }
+        ]
+      }
+    },
+    {
+      "id": "home-story",
+      "type": "content-card",
+      "config": {
+        "headline": "From Minecraft to Main Street",
+        "body": "It started in a blocky world. My journey through gaming, content creation, and local business gave me a profound appreciation for the passion of individual creators. Nown Digital is the culmination of that journey.",
+        "actions": [
+          {
+            "label": "Read the full story\u2026",
+            "href": "/about",
+            "style": "ghost"
+          }
+        ]
+      }
+    },
+    {
+      "id": "home-services",
+      "type": "feature",
+      "config": {
+        "title": "Our Services",
+        "items": [
+          {
+            "title": "Website Development",
+            "body": "High-efficiency sites built for performance and true ownership."
+          },
+          {
+            "title": "Branding & Design",
+            "body": "Crafting a memorable visual identity, from logo to brand guide."
+          },
+          {
+            "title": "Printing & Consulting",
+            "body": "Premium printed materials and expert guidance for growth."
+          }
+        ],
+        "actions": [
+          {
+            "label": "See All Services & Pricing",
+            "href": "/services",
+            "style": "gold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "home-work",
+      "type": "gallery",
+      "config": {
+        "title": "Our Work",
+        "body": "Selected projects from the studio.",
+        "items": [
+          {
+            "src": "asset:work-1",
+            "alt": "Project one"
+          },
+          {
+            "src": "asset:work-2",
+            "alt": "Project two"
+          },
+          {
+            "src": "asset:work-3",
+            "alt": "Project three"
+          }
+        ],
+        "actions": [
+          {
+            "label": "See More of Our Work",
+            "href": "/portfolio",
+            "style": "ghost"
+          }
+        ]
+      }
+    },
+    {
+      "id": "home-contact",
+      "type": "contact",
+      "config": {
+        "headline": "Let's Build Something Together",
+        "body": "Have an idea? Need a quote? Reach out below.",
+        "lines": [
+          {
+            "label": "Mary Theadoor"
+          },
+          {
+            "label": "\ud83d\udcde",
+            "value": "970-903-0369",
+            "href": "tel:9709030369"
+          },
+          {
+            "label": "\u2709\ufe0f",
+            "value": "hello@example.com",
+            "href": "mailto:hello@example.com"
+          },
+          {
+            "label": "\ud83c\udf10",
+            "value": "NownDigital.app",
+            "href": "https://NownDigital.app"
+          }
+        ]
+      }
+    },
+    {
+      "id": "home-apps",
+      "type": "gallery",
+      "config": {
+        "title": "Interactive Web Apps",
+        "body": "Tools \u00b7 Games \u00b7 AI. Try our Business Card Generator, Meditation App, and Brick Breaker game.",
+        "actions": [
+          {
+            "label": "Explore Web Apps",
+            "href": "https://apps.nown.digital/",
+            "style": "gold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "home-rd",
+      "type": "hero",
+      "config": {
+        "headline": "Nown Institute for Science & Technology (NIST)",
+        "body": "Exploring the Physics of Information. We research how information organizes, flows, and heals within a computational substrate \u2014 the core of the S.I.T.E.S protocol.",
+        "actions": [
+          {
+            "label": "Explore LazerFlow",
+            "href": "https://www.lazerflow.com",
+            "style": "ghost"
+          }
+        ]
+      }
+    }
+  ],
+  "assets": {
+    "work-1": "/assets/work-1.jpg",
+    "work-2": "/assets/work-2.jpg",
+    "work-3": "/assets/work-3.jpg"
+  }
+}

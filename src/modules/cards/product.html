@@ -1,0 +1,13 @@
+<!-- product tile — product card + buy button. Progressive: the price/name
+     render without JS; the buy action is wired by product.js (Snipcart/Stripe). -->
+<article class="tile tile-product" data-tile="product" data-tile-id="product-1" data-sku="SKU-001" data-price="49" data-currency="usd">
+  <div class="tile-card__media" data-role="media">
+    <img src="/assets/product.jpg" alt="Product image" loading="lazy" />
+  </div>
+  <h3 data-role="title">Product name</h3>
+  <div class="tile-product__meta">
+    <span class="tile-price__amount" data-role="price">$49</span>
+    <span class="tile-card__meta" data-role="variant">Color / Size</span>
+  </div>
+  <button class="btn btn-tactile btn-primary-tactile" data-role="buy" type="button">Add to cart</button>
+</article>

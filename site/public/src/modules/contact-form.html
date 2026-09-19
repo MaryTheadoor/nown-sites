@@ -1,0 +1,14 @@
+<!-- contact-form tile — a privacy-first form with NO backend.
+     Provider is set via data-form-provider + data-form-endpoint (Formspree /
+     Tally / StaticForms). The form still works if JS is off (POSTs to endpoint).
+     contact-form.js adds AJAX submit + success/error feedback. -->
+<form class="tile tile-contact-form" data-tile="contact-form" data-tile-id="contact-form-1"
+      data-form-provider="formspree" data-form-endpoint="https://formspree.io/f/yourFormId"
+      action="https://formspree.io/f/yourFormId" method="POST">
+  <h2 data-role="title">Send a note</h2>
+  <label>Name <input name="name" type="text" required autocomplete="name" /></label>
+  <label>Email <input name="email" type="email" required autocomplete="email" /></label>
+  <label>Message <textarea name="message" rows="4" required></textarea></label>
+  <div class="tile-contact-form__status" data-role="status" role="status" aria-live="polite"></div>
+  <button class="btn btn-tactile btn-gold-tactile" data-role="submit" type="submit">Send</button>
+</form>

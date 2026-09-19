@@ -1,0 +1,124 @@
+{
+  "$schema": "../ai-skill/sites-schema.json",
+  "site": {
+    "name": "Nown Digital",
+    "baseUrl": "https://NownDigital.app",
+    "description": "Sovereign Internet Topology Engines for creators & business. Fast, fully-owned websites built on the Nown S.I.T.E.S protocol.",
+    "lang": "en",
+    "seo": {
+      "title": "Nown Digital | Your Vision, Built with Care.",
+      "description": "Sovereign Internet Topology Engines for creators and business. No agency traps, no perpetual subscriptions. We build it, you own it."
+    }
+  },
+  "theme": {
+    "colors": {
+      "background": "#FAF6F0",
+      "surface": "#FFFFFF",
+      "primary": "#1E4D4F",
+      "accent": "#D97706",
+      "plum": "#935B8A"
+    },
+    "defaultTheme": "system"
+  },
+  "nav": [
+    { "label": "Home", "href": "/" },
+    { "label": "About", "href": "/about" },
+    { "label": "SITES", "href": "/sites" },
+    { "label": "Services", "href": "/services" },
+    { "label": "Portfolio", "href": "/portfolio" },
+    { "label": "R&D", "href": "/rd" },
+    { "label": "Apps", "href": "https://apps.nown.digital/", "icon": "external" }
+  ],
+  "content": [
+    {
+      "type": "hero",
+      "config": {
+        "headline": "Your Vision, Built with Care.",
+        "body": "Sovereign Internet Topology Engines for Creators & Business.",
+        "actions": [
+          { "label": "Get a Free Consultation", "href": "https://calendly.com/example/free-consultation", "style": "gold" }
+        ]
+      }
+    },
+    {
+      "type": "feature",
+      "config": {
+        "items": [
+          { "title": "Our Why", "body": "Mission: To empower entrepreneurs and creators to build powerful, professional websites without being trapped by high agency costs or perpetual subscriptions. We provide the tools and knowledge for true digital independence." },
+          { "title": "Powered by LazerFlow Intelligence", "body": "Beyond static pages — we research the physics of information. Explore our work on Information Substrate Theory (IST) and self-healing systems.", "actions": [{ "label": "Visit the R&D Lab", "href": "/rd", "style": "ghost" }] }
+        ]
+      }
+    },
+    {
+      "type": "feature",
+      "config": {
+        "title": "The Nown SITES Protocol",
+        "items": [
+          { "title": "The Custom-Tailored Suit", "body": "We don't do \"one-size-fits-all.\" We build a website that fits your business perfectly." },
+          { "title": "True Ownership", "body": "Other platforms let you rent your website. We believe what you pay for should be yours. Once we build it, you own it." }
+        ],
+        "actions": [{ "label": "Learn About the Protocol", "href": "/sites", "style": "ghost" }]
+      }
+    },
+    {
+      "type": "content-card",
+      "config": {
+        "headline": "From Minecraft to Main Street",
+        "body": "It started in a blocky world. My journey through gaming, content creation, and local business gave me a profound appreciation for the passion of individual creators. Nown Digital is the culmination of that journey.",
+        "actions": [{ "label": "Read the full story…", "href": "/about", "style": "ghost" }]
+      }
+    },
+    {
+      "type": "feature",
+      "config": {
+        "title": "Our Services",
+        "items": [
+          { "title": "Website Development", "body": "High-efficiency sites built for performance and true ownership." },
+          { "title": "Branding & Design", "body": "Crafting a memorable visual identity, from logo to brand guide." },
+          { "title": "Printing & Consulting", "body": "Premium printed materials and expert guidance for growth." }
+        ],
+        "actions": [{ "label": "See All Services & Pricing", "href": "/services", "style": "gold" }]
+      }
+    },
+    {
+      "type": "gallery",
+      "config": {
+        "title": "Our Work",
+        "body": "Loading Projects…",
+        "actions": [{ "label": "See More of Our Work", "href": "/portfolio", "style": "ghost" }]
+      }
+    },
+    {
+      "type": "contact",
+      "config": {
+        "headline": "Let's Build Something Together",
+        "body": "Have an idea? Need a quote? Reach out below.",
+        "items": [
+          { "title": "Mary Theadoor" },
+          { "title": "📞 970-903-0369" },
+          { "title": "✉️ hello@example.com" },
+          { "title": "🌐 NownDigital.app" }
+        ],
+        "actions": [{ "label": "Save Contact", "href": "vcard:Mary Theadoor", "style": "ghost" }]
+      }
+    },
+    {
+      "type": "gallery",
+      "config": {
+        "title": "Interactive Web Apps",
+        "body": "Tools · Games · AI. Experience the power of the Nown Protocol. Try our Business Card Generator, Meditation App, and Brick Breaker game.",
+        "actions": [{ "label": "Explore Web Apps", "href": "https://apps.nown.digital/", "style": "gold" }]
+      }
+    },
+    {
+      "type": "hero",
+      "config": {
+        "headline": "Nown Institute for Science & Technology (NIST)",
+        "body": "Exploring the Physics of Information. We research the fundamental topology of digital systems — how information organizes, flows, and heals within a computational substrate. This is the core of the S.I.T.E.S Protocol and the intelligence behind tools like LazerFlow.",
+        "actions": [
+          { "label": "Explore LazerFlow", "href": "https://www.lazerflow.com", "style": "ghost" }
+        ]
+      }
+    }
+  ]
+}

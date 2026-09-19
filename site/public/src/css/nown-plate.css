@@ -1,0 +1,333 @@
+/* ==========================================================================
+   nown-plate.css — S.I.T.E.S Plate
+   Design tokens, reset, the plate (root viewport), the breakpoint-free grid,
+   and theming. This is the framework's single source of truth for values.
+   Tiles (now-tiles.css) and any site override MUST use these tokens.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Design tokens
+   -------------------------------------------------------------------------- */
+:root {
+  /* Colors */
+  --color-background: #FAF6F0;   /* page/plate atmosphere            */
+  --color-surface:    #FFFFFF;   /* tile surfaces                    */
+  --color-surface-2:  #F0EBE3;   /* warm sand — subtle fills          */
+  --color-text:       #111827;   /* body text                        */
+  /* Secondary text. Was #6B7280, which measures 4.49:1 against the light
+     background — a hair UNDER the 4.5:1 AA floor, and it carries hints, status
+     lines, idle tabs and annotations, all of which people read. #5A6270 measures
+     about 5.7:1 and keeps the blue-grey cast. Measured in a browser, not eyeballed:
+     the old value is close enough to AA that it looks fine until you check. */
+  --color-text-muted: #5A6270;   /* secondary text                   */
+  --color-primary:    #1E4D4F;   /* brand primary (deep teal)         */
+  --color-primary-light: #2A6B6E;
+  --color-accent:     #D97706;   /* gold — CTAs / highlights          */
+  --color-accent-light: #E68A00;
+  --color-accent-deep:  #B45309;
+  --color-plum:       #935B8A;   /* highlight / badge                  */
+  --color-primary-deep: #17393B;  /* tactile-button depth               */
+  --color-accent-deep-2: #8A4703; /* tactile-button depth               */
+  --color-plum-deep:  #5C3856;
+  --color-on-accent:  #FFFFFF;    /* text on coloured buttons           */
+  /* Translucent surfaces (also theme-editable) */
+  --color-glass:        rgba(255,255,255,.70);
+  --color-glass-border: rgba(240,235,227,.70);
+  --color-dock:         rgba(255,255,255,.88);
+  --color-dock-border:  rgba(240,235,227,.80);
+
+  /* Type */
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: Georgia, "Times New Roman", serif;
+  --text-base: 1rem;
+  --text-lead: 1.125rem;
+  --leading: 1.65;
+
+  /* Spacing */
+  --space-1: 0.25rem;  --space-2: 0.5rem;  --space-3: 0.75rem;
+  --space-4: 1rem;     --space-5: 1.25rem; --space-6: 1.5rem;
+  --space-8: 2rem;     --space-10: 2.5rem; --space-12: 3rem;
+  --space-16: 4rem;    --space-20: 5rem;
+
+  /* Radii */
+  --radius-sm: 0.5rem; --radius-md: 0.75rem; --radius-lg: 1rem;
+  --radius-xl: 1.5rem; --radius-pill: 999px;
+
+  /* Shadows */
+  --shadow-card:    0 2px 16px -4px rgba(30, 77, 79, 0.06);
+  --shadow-elevated: 0 8px 32px -6px rgba(30, 77, 79, 0.10);
+  --shadow-float:   0 16px 40px -10px rgba(30, 77, 79, 0.12);
+  /* Tactile-button depth. The values live here, not in the tile stylesheet: rule 3
+     says a component may only reference tokens, and the button's inner highlight
+     and drop shadow are exactly the kind of value that belongs in the palette. */
+  --shadow-tactile:        0 4px 6px rgba(0, 0, 0, .10), inset 0 1px 1px rgba(255, 255, 255, .25);
+  --shadow-tactile-active: 0 1px 2px rgba(0, 0, 0, .08), inset 0 2px 4px rgba(0, 0, 0, .06);
+
+  /* Media chrome: the letterbox behind a video and the scrim over its placeholder.
+     Genuinely black and genuinely white — not themed — which is why they are their
+     own tokens rather than reused colour roles. */
+  --color-media-void:   #000000;
+  --color-on-media:     #FFFFFF;
+  --scrim-media:        linear-gradient(180deg, rgba(0, 0, 0, .20), rgba(0, 0, 0, .55));
+
+  /* Grid knobs */
+  --grid-min: 300px;        /* floor for the automatic grid's tracks */
+  --grid-gap: var(--space-6);
+  --grid-cols: 12;          /* columns in the configured grid (wide containers) */
+  --grid-cols-narrow: 6;    /* columns in the configured grid (narrow containers) */
+}
+
+/* --------------------------------------------------------------------------
+   2. Dark theme — token overrides only
+   -------------------------------------------------------------------------- */
+[data-theme="dark"] {
+  --color-background: #0F172A;   /* midnight slate */
+  --color-surface:    #1E293B;
+  --color-surface-2:  #334155;
+  --color-text:       #E5E7EB;
+  --color-text-muted: #94A3B8;
+  --color-primary:    #2A6B6E;
+  --color-accent:     #E68A00;
+  --color-primary-deep: #17393B;
+  --color-accent-deep-2: #7A4000;
+  --color-glass:        rgba(30,41,59,.65);
+  --color-glass-border: rgba(100,116,139,.20);
+  --color-dock:         rgba(30,41,59,.88);
+  --color-dock-border:  rgba(100,116,139,.25);
+}
+
+/* --------------------------------------------------------------------------
+   3. Base / reset
+   -------------------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, video, picture { max-width: 100%; display: block; }
+a { color: inherit; }
+h1, h2, h3, h4, h5, h6 { line-height: 1.2; letter-spacing: -0.01em; font-family: var(--font-display); font-weight: 700; }
+p { line-height: 1.7; }
+
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; border-radius: 2px; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* --------------------------------------------------------------------------
+   4. The Plate (root viewport)
+   -------------------------------------------------------------------------- */
+.sites-plate {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  isolation: isolate;
+}
+.sites-plate > main { flex: 1; }
+
+/* --------------------------------------------------------------------------
+   4b. The plate background — site.plate
+
+   Four modes, chosen in the content file and applied by the binder at runtime and
+   by tools/bake.mjs at build time:
+     ambient   (default) the two radial washes, following the theme
+     color     a flat plate, no ambient layer
+     image     an image behind everything
+     none      nothing
+
+   This block also removed the last rule-3 violation outside :root. The washes used
+   to be raw rgba(217,119,6,0.06) and rgba(30,77,79,0.05) — the accent and primary
+   hardcoded, which meant they did not follow a re-theme and would have failed the
+   code panel's own token lint. They are color-mix on the real tokens now.
+-------------------------------------------------------------------------- */
+:root {
+  --plate-color: var(--color-background);
+  --plate-image: none;
+  --plate-motion: 48s;
+  --plate-ambient-layer:
+    radial-gradient(circle at 20% 10%, color-mix(in srgb, var(--color-accent) 7%, transparent), transparent 45%),
+    radial-gradient(circle at 85% 25%, color-mix(in srgb, var(--color-primary) 6%, transparent), transparent 50%);
+}
+
+/* Optional atmospheric backdrop layer (gradient / pattern) for the plate. */
+.plate-ambient {
+  position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background-image: var(--plate-ambient-layer);
+}
+
+.sites-plate[data-plate="color"] { background: var(--plate-color); }
+.sites-plate[data-plate="color"] .plate-ambient { display: none; }
+.sites-plate[data-plate="none"] .plate-ambient { display: none; }
+
+.sites-plate[data-plate="image"] .plate-ambient {
+  background-image: var(--plate-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* The ambient wash drifts. scale() first so the drift never exposes an edge. */
+@keyframes plate-drift {
+  0%   { transform: scale(1.15) translate3d(-1.5%, -1%, 0); }
+  50%  { transform: scale(1.15) translate3d(1.5%, 1%, 0); }
+  100% { transform: scale(1.15) translate3d(-1.5%, -1%, 0); }
+}
+.sites-plate[data-plate="animation"] .plate-ambient {
+  animation: plate-drift var(--plate-motion) ease-in-out infinite;
+  will-change: transform;
+}
+
+/* The accessibility checklist requires reduced motion to be honoured, so the
+   animated plate degrades to the identical static wash rather than to nothing.
+   This is a MOTION query, not a layout media query — rule 5 forbids page-level
+   media queries for LAYOUT, and this is the one the checklist asks for. */
+@media (prefers-reduced-motion: reduce) {
+  .sites-plate[data-plate="animation"] .plate-ambient {
+    animation: none;
+    will-change: auto;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. The grid — two ways to lay tiles out
+
+   a) .sites-grid        AUTOMATIC — as many equal columns as fit. Zero config.
+   b) .sites-grid--cols  CONFIGURED — a real column grid (12 wide / 6 narrow)
+                         where each tile declares its own width with data-span.
+                         Two tiers, driven by the container's width, not the
+                         viewport: narrow (<48rem) and wide (>=48rem).
+   -------------------------------------------------------------------------- */
+
+/* ---- a) automatic ---- */
+.sites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--grid-min), 1fr));
+  gap: var(--grid-gap);
+  width: 100%;
+}
+/* A row of tiles that should always be a single fluid column. */
+.sites-grid.sites-grid--stack { grid-template-columns: 1fr; }
+
+/* ---- b) configured: columns + per-tile spans ----
+   NB: the grid must NOT set container-type on itself. A container query resolves
+   against the nearest ANCESTOR container, so a grid that is its own container can
+   never match its own tier rule and would stay stuck in the narrow tier. It
+   queries the surrounding container (.sites-container, or the enclosing tile). */
+.sites-grid--cols {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols-narrow), 1fr);
+  gap: var(--grid-gap);
+  width: 100%;
+}
+/* Tiles are full width unless they ask for a span. */
+.sites-grid--cols > * { grid-column: 1 / -1; }
+
+/* narrow tier: spans of the narrow column count */
+.sites-grid--cols > [data-span-sm="1"] { grid-column: span 1; }
+.sites-grid--cols > [data-span-sm="2"] { grid-column: span 2; }
+.sites-grid--cols > [data-span-sm="3"] { grid-column: span 3; }
+.sites-grid--cols > [data-span-sm="4"] { grid-column: span 4; }
+.sites-grid--cols > [data-span-sm="5"] { grid-column: span 5; }
+.sites-grid--cols > [data-span-sm="6"] { grid-column: span 6; }
+
+/* wide tier: 12 columns, spans of up to 12 */
+@container (min-width: 48rem) {
+  .sites-grid--cols { grid-template-columns: repeat(var(--grid-cols), 1fr); }
+  .sites-grid--cols > [data-span="1"]  { grid-column: span 1; }
+  .sites-grid--cols > [data-span="2"]  { grid-column: span 2; }
+  .sites-grid--cols > [data-span="3"]  { grid-column: span 3; }
+  .sites-grid--cols > [data-span="4"]  { grid-column: span 4; }
+  .sites-grid--cols > [data-span="5"]  { grid-column: span 5; }
+  .sites-grid--cols > [data-span="6"]  { grid-column: span 6; }
+  .sites-grid--cols > [data-span="7"]  { grid-column: span 7; }
+  .sites-grid--cols > [data-span="8"]  { grid-column: span 8; }
+  .sites-grid--cols > [data-span="9"]  { grid-column: span 9; }
+  .sites-grid--cols > [data-span="10"] { grid-column: span 10; }
+  .sites-grid--cols > [data-span="11"] { grid-column: span 11; }
+  .sites-grid--cols > [data-span="12"] { grid-column: span 12; }
+  /* start on a specific column (e.g. centre a 6-wide tile) */
+  .sites-grid--cols > [data-start="1"]  { grid-column-start: 1; }
+  .sites-grid--cols > [data-start="2"]  { grid-column-start: 2; }
+  .sites-grid--cols > [data-start="3"]  { grid-column-start: 3; }
+  .sites-grid--cols > [data-start="4"]  { grid-column-start: 4; }
+  .sites-grid--cols > [data-start="5"]  { grid-column-start: 5; }
+  .sites-grid--cols > [data-start="6"]  { grid-column-start: 6; }
+  .sites-grid--cols > [data-start="7"]  { grid-column-start: 7; }
+  /* place without auto-flow packing, so explicit starts are honoured */
+  .sites-grid--cols > [data-start] { grid-column-end: span var(--place-span, 6); }
+}
+
+/* ---- grid alignment helpers ---- */
+.sites-grid--start  { align-items: start; }     /* tiles size to their content */
+.sites-grid--center { align-items: center; }
+.sites-grid--stretch { align-items: stretch; }  /* default: equal-height tiles */
+
+/* Constrain the plate content width and center it.
+   It is also a query container, so grids inside it can respond to the available
+   width (a tile that sets container-type takes over for anything nested deeper). */
+.sites-container {
+  container-type: inline-size;
+  width: 100%;
+  /* 72rem, not 64. At 1024px a three-up grid of 300px cards needs 948px and has 976
+     — only 28px of slack. Panels add 24px of inset a side, which is 48, and the
+     third card drops to the next row. Widen the canvas and the slack returns. */
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: var(--space-6);
+}
+
+/* --------------------------------------------------------------------------
+   6. Section / vertical rhythm
+   -------------------------------------------------------------------------- */
+.section { padding-block: var(--space-16); }
+.section--tight { padding-block: var(--space-8); }
+
+/* --------------------------------------------------------------------------
+   7. Media stability (no CLS)
+   -------------------------------------------------------------------------- */
+.media {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-2);
+}
+.media img, .media video { width: 100%; height: 100%; object-fit: cover; }
+/* A media wrapper whose slot has not been given a source yet. The catalog's
+   markup ships src="" — that empty value is what keeps a snippet a valid
+   contract — but an <img> with an empty src renders the browser's broken-image
+   glyph inside a reserved box, which looks like the site is broken rather than
+   like the slot is empty. Hide the wrapper until the binder, or a bake, supplies
+   a real source. Any real media (non-empty img/iframe, or video/canvas/object)
+   keeps it visible. */
+.media:not(:has(img[src]:not([src=""]))):not(:has(iframe[src]:not([src=""]))):not(:has(video, canvas, object)) {
+  display: none;
+}
+.media--16x9 { aspect-ratio: 16 / 9; }
+.media--4x3  { aspect-ratio: 4 / 3; }
+.media--1x1  { aspect-ratio: 1 / 1; }
+.media--contain img { object-fit: contain; }
+
+/* --------------------------------------------------------------------------
+   8. Motion preferences
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

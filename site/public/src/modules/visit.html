@@ -1,0 +1,27 @@
+<!-- visit tile — the foot-traffic block: where you are, when you are open,
+     how to get there. Every action is a plain link, so it works with no JS.
+     The directions href should be the business own Google Maps link (Maps
+     listing -> Share -> Copy link): it pins the real place, where a geocoded
+     address guess may not. If it is empty, visit.js derives one from address. -->
+<section class="tile tile-visit" data-tile="visit" data-tile-id="visit-1">
+  <div class="tile-visit__grid">
+    <div class="tile-visit__place">
+      <h2 data-role="headline">Find us</h2>
+      <address class="tile-visit__address" data-role="address">1200 E 6th St, Austin, TX 78702</address>
+      <p class="tile-visit__note" data-role="note"></p>
+      <div class="tile-visit__actions" data-role="actions">
+        <!-- placeholder: replaced when items are supplied -->
+        <a class="btn btn-tactile btn-gold-tactile" data-role="action" href="https://www.google.com/maps/dir/?api=1&amp;destination=1200%20E%206th%20St%2C%20Austin%2C%20TX%2078702"><span data-role="label">Get directions</span></a>
+
+        <template><a class="btn btn-tactile btn-gold-tactile" data-role="action" href=""><span data-role="label"></span></a></template>
+      </div>
+    </div>
+    <div class="tile-visit__when">
+      <h3 data-role="hoursTitle">Opening hours</h3>
+      <p class="tile-visit__state" data-role="openState" hidden></p>
+      <ul class="tile-visit__hours" data-role="hours">
+        <li>Mon–Fri 9:00–19:00</li>
+      </ul>
+    </div>
+  </div>
+</section>

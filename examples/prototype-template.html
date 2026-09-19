@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nown Digital — S.I.T.E.S prototype</title>
+  <meta name="description" content="Spec-compliant prototype: predefined structure, copy drawn from the backend content file." />
+  <link rel="stylesheet" href="../src/css/nown-plate.css" />
+  <link rel="stylesheet" href="../src/css/nown-tiles.css" />
+  <!-- Theme engine in <head>: applies the saved/system mode before paint (no flash) -->
+  <script src="../src/js/sites-theme.js"></script>
+</head>
+<!-- data-content: the backend copy file this page draws its text from -->
+<body data-content="nowndigital.content.json">
+  <div class="sites-plate">
+    <div class="plate-ambient" aria-hidden="true"></div>
+
+    <!-- ===== chrome: structure fixed, nav links drawn from content.json ===== -->
+    <header class="site-header">
+      <div class="tile-announcement" data-tile="announcement" data-tile-id="chrome-announcement">
+        <span data-role="text">Nown Digital — sovereign web, built to own.</span>
+      </div>
+      <nav class="nav-dock" data-tile="nav-dock" aria-label="Primary">
+        <!-- links are generated from content.json `nav[]` into this container -->
+        <div class="nav-dock__links" data-role="nav-links">
+          <template>
+            <a class="nav-dock-link" data-role="action"><span data-role="label"></span></a>
+          </template>
+        </div>
+        <button class="nav-dock-link nav-dock-theme" data-role="theme-toggle" type="button" aria-label="Toggle dark mode"><span>Theme</span></button>
+      </nav>
+    </header>
+
+    <main class="sites-container">
+      <!-- ===== hero ===== -->
+      <section class="tile tile-hero" data-tile="hero" data-tile-id="home-hero">
+        <div class="tile-hero__content">
+          <h1 data-role="headline">Your Vision, Built with Care.</h1>
+          <p data-role="body">Sovereign Internet Topology Engines for Creators &amp; Business.</p>
+          <div class="tile-hero__actions" data-role="actions">
+            <template>
+              <a class="btn btn-tactile btn-gold-tactile" data-role="action"><span data-role="label"></span></a>
+            </template>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== feature sections (items drawn from content.json) ===== -->
+      <section class="section tile tile-feature-block" data-tile="feature" data-tile-id="home-why">
+        <h2 data-role="title">Our Why</h2>
+        <div class="sites-grid" data-role="items">
+          <template>
+            <article class="tile tile-feature">
+              <h3 data-role="title"></h3>
+              <p data-role="body"></p>
+            </article>
+          </template>
+        </div>
+        <div data-role="actions">
+          <template><a class="btn btn-ghost" data-role="action"><span data-role="label"></span></a></template>
+        </div>
+      </section>
+
+      <section class="section tile tile-feature-block" data-tile="feature" data-tile-id="home-protocol">
+        <h2 data-role="title">The Nown SITES Protocol</h2>
+        <div class="sites-grid" data-role="items">
+          <template>
+            <article class="tile tile-feature"><h3 data-role="title"></h3><p data-role="body"></p></article>
+          </template>
+        </div>
+        <div data-role="actions">
+          <template><a class="btn btn-ghost" data-role="action"><span data-role="label"></span></a></template>
+        </div>
+      </section>
+
+      <!-- ===== story ===== -->
+      <section class="section tile tile-card" data-tile="content-card" data-tile-id="home-story">
+        <h2 data-role="headline">From Minecraft to Main Street</h2>
+        <p data-role="body">It started in a blocky world…</p>
+        <div data-role="actions">
+          <template><a class="tile-card__meta" data-role="action"><span data-role="label"></span></a></template>
+        </div>
+      </section>
+
+      <!-- ===== services ===== -->
+      <section class="section tile tile-feature-block" data-tile="feature" data-tile-id="home-services">
+        <h2 data-role="title">Our Services</h2>
+        <div class="sites-grid" data-role="items">
+          <template>
+            <article class="tile tile-feature"><h3 data-role="title"></h3><p data-role="body"></p></article>
+          </template>
+        </div>
+        <div data-role="actions">
+          <template><a class="btn btn-tactile btn-gold-tactile" data-role="action"><span data-role="label"></span></a></template>
+        </div>
+      </section>
+
+      <!-- ===== work gallery ===== -->
+      <section class="section tile tile-gallery" data-tile="gallery" data-tile-id="home-work">
+        <h2 data-role="title">Our Work</h2>
+        <p data-role="body">Selected projects.</p>
+        <div class="sites-grid" data-role="items">
+          <template>
+            <figure class="media media--1x1"><img data-role="src" src="" alt="" loading="lazy" /></figure>
+          </template>
+        </div>
+        <div data-role="actions">
+          <template><a class="btn btn-ghost" data-role="action"><span data-role="label"></span></a></template>
+        </div>
+      </section>
+
+      <!-- ===== contact ===== -->
+      <section class="section tile tile-contact" data-tile="contact" data-tile-id="home-contact">
+        <h2 data-role="headline">Let’s Build Something Together</h2>
+        <p data-role="body">Have an idea? Need a quote? Reach out below.</p>
+        <div data-role="lines">
+          <template>
+            <p><span data-role="label"></span> <a data-role="value"></a></p>
+          </template>
+        </div>
+      </section>
+
+      <!-- ===== apps ===== -->
+      <section class="section tile tile-gallery" data-tile="gallery" data-tile-id="home-apps">
+        <h2 data-role="title">Interactive Web Apps</h2>
+        <p data-role="body">Tools · Games · AI.</p>
+        <div data-role="actions">
+          <template><a class="btn btn-tactile btn-gold-tactile" data-role="action"><span data-role="label"></span></a></template>
+        </div>
+      </section>
+
+      <!-- ===== R&D ===== -->
+      <section class="section tile tile-hero" data-tile="hero" data-tile-id="home-rd">
+        <div class="tile-hero__content">
+          <h2 data-role="headline">Nown Institute for Science &amp; Technology (NIST)</h2>
+          <p data-role="body">Exploring the Physics of Information.</p>
+          <div class="tile-hero__actions" data-role="actions">
+            <template><a class="btn btn-ghost" data-role="action"><span data-role="label"></span></a></template>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="tile-footer sites-container" data-tile="footer" data-tile-id="chrome-footer">
+      <div>
+        <div class="tile-footer__brand" data-role="brand">Nown Digital</div>
+        <p data-role="tagline">Built on the Nown S.I.T.E.S framework.</p>
+      </div>
+      <div class="tile-footer__legal">
+        <span data-role="copyright">© 2025 Nown Digital · Nown Family Ltd.</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../src/js/tile-registry.js"></script>
+  <script src="../src/js/sites.js"></script>
+  <script src="../src/js/sites-assets.js"></script>
+  <script src="../src/js/sites-content.js"></script>
+  <script>
+    // Draw the copy (and theme) from the backend file into the predefined slots.
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.SITES && SITES.content) SITES.content.load();
+    });
+  </script>
+</body>
+</html>

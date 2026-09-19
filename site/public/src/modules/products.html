@@ -1,0 +1,29 @@
+<!-- products tile — a curated showcase of items that link OUT to wherever the
+     business already sells them (Square, Shopify, Etsy, eBay, a Marketplace
+     listing). No cart, no checkout, no provider: an item is a card with an href.
+     See docs/COMMERCE.md for why that is the launch scope. -->
+<section class="tile tile-products" data-tile="products" data-tile-id="products-1">
+  <div class="tile-products__intro">
+    <h2 data-role="title">In stock right now</h2>
+    <p data-role="intro">A few things on the floor this week. Ask us about anything else.</p>
+  </div>
+  <div class="sites-grid" data-role="items">
+        <!-- placeholder: replaced when items are supplied -->
+    <article class="tile tile-product-card">
+      <div class="media media--1x1"><img data-role="src" src="" alt="" loading="lazy" /></div>
+      <h3 data-role="title">Used Makita 18V drill</h3>
+      <p class="tile-product-card__price" data-role="price">$65</p>
+      <a class="btn btn-ghost" data-role="action" href="https://square.link/u/example"><span data-role="label">View details</span></a>
+    </article>
+
+    <template>
+      <article class="tile tile-product-card">
+        <div class="media media--1x1"><img data-role="src" src="" alt="" loading="lazy" /></div>
+        <h3 data-role="title"></h3>
+        <p class="tile-product-card__price" data-role="price"></p>
+        <a class="btn btn-ghost" data-role="action" href=""><span data-role="label"></span></a>
+      </article>
+    </template>
+  </div>
+  <p class="tile-products__note" data-role="note"></p>
+</section>

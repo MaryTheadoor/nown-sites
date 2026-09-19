@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="product">
+  <rect width="800" height="600" fill="#12283F"/>
+  <circle cx="576" cy="168" r="132" fill="#2F6FED" opacity="0.9"/>
+  <rect x="80" y="432" width="336" height="12" rx="6" fill="#FFFFFF" opacity="0.55"/>
+  <rect x="80" y="468" width="480" height="12" rx="6" fill="#FFFFFF" opacity="0.32"/>
+  <text x="80" y="384" font-family="Georgia, serif" font-size="60" fill="#FFFFFF">product</text>
+</svg>

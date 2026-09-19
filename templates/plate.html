@@ -1,0 +1,113 @@
+<!doctype html>
+<!-- ==========================================================================
+     plate.html — the S.I.T.E.S starter template
+     --------------------------------------------------------------------------
+     Copy this file, rename it (index.html), and start pasting tiles into <main>.
+     Every tile you can paste lives in templates/TILE-KIT.md.
+
+     How it works
+       1. <head>  — the two stylesheets + the theme engine (loaded early, no flash)
+       2. <body>  — a plate: chrome (announcement + nav dock) → <main> tiles → footer
+       3. bottom  — the runtime: registry → tiles → assets → binder → your config
+
+     Paths below point at ../src/ so this file runs straight from the repo.
+     When you deploy, copy src/css and src/js next to your HTML and change
+     ../src/ to src/ (see templates/README.md).
+
+     No build step. No npm. Open it in a browser.
+     ========================================================================== -->
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Replace these two with your own -->
+  <title>My S.I.T.E.S site</title>
+  <meta name="description" content="A site built from copy-pasted tiles." />
+
+  <link rel="stylesheet" href="../src/css/nown-plate.css" />
+  <link rel="stylesheet" href="../src/css/nown-tiles.css" />
+
+  <!-- Theme engine: in <head> so the saved/system theme applies before paint -->
+  <script src="../src/js/sites-theme.js"></script>
+</head>
+
+<!-- data-content points at the file holding your words, theme and images -->
+<body data-content="content.json">
+  <div class="sites-plate">
+    <div class="plate-ambient" aria-hidden="true"></div>
+
+    <!-- ============ CHROME 1: announcement strip (delete if unwanted) ============ -->
+    <header class="site-header">
+      <div class="tile-announcement" data-tile="announcement" data-tile-id="chrome-announcement">
+        <span data-role="text">Welcome — replace this line.</span>
+      </div>
+
+      <!-- ============ CHROME 2: the floating nav dock ============
+           Nav labels/links come from content.json → nav[]. Add or remove entries
+           there, not here. -->
+      <nav class="nav-dock" data-tile="nav-dock" aria-label="Primary">
+        <div class="nav-dock__links" data-role="nav-links">
+          <template><a class="nav-dock-link" data-role="action"><span data-role="label"></span></a></template>
+        </div>
+        <button class="nav-dock-link nav-dock-theme" data-role="theme-toggle" type="button" aria-label="Toggle dark mode"><span>Theme</span></button>
+      </nav>
+    </header>
+
+    <main class="sites-container">
+
+      <!-- ============================================================
+           PASTE YOUR TILES HERE — one <section> per tile, top to bottom.
+           Grab the markup from templates/TILE-KIT.md, then add a matching
+           entry in content.json with the same data-tile-id.
+           ============================================================ -->
+
+      <!-- ---- example: hero (delete once you have your own) ---- -->
+      <section class="tile tile-hero" data-tile="hero" data-tile-id="home-hero">
+        <div class="tile-hero__grid">
+          <div class="tile-hero__content">
+            <h1 data-role="headline">Your headline goes here</h1>
+            <p data-role="body">A sentence that explains what this is.</p>
+            <div class="tile-hero__actions" data-role="actions">
+              <template><a class="btn btn-tactile btn-gold-tactile" data-role="action"><span data-role="label"></span></a></template>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---- PASTE THE NEXT TILE HERE ---- -->
+
+    </main>
+
+    <!-- ============ CHROME 3: footer ============ -->
+    <footer class="tile-footer sites-container" data-tile="footer" data-tile-id="chrome-footer">
+      <div>
+        <div class="tile-footer__brand" data-role="brand">My site</div>
+        <p data-role="tagline">Built with S.I.T.E.S.</p>
+      </div>
+      <div class="tile-footer__legal"><span data-role="copyright">© 2026</span></div>
+    </footer>
+  </div>
+
+  <!-- ============ RUNTIME (keep this order) ============ -->
+  <script src="../src/js/tile-registry.js"></script>
+  <script src="../src/js/sites.js"></script>
+  <script src="../src/js/sites-assets.js"></script>
+  <script src="../src/js/sites-content.js"></script>
+
+  <!-- Optional: uncomment the behaviour modules for the tiles you actually use -->
+  <!-- <script src="../src/modules/nav-dock.js"></script> -->
+  <!-- <script src="../src/modules/video.js"></script> -->
+  <!-- <script src="../src/modules/product.js"></script> -->
+  <!-- <script src="../src/modules/faq.js"></script> -->
+  <!-- <script src="../src/modules/contact-form.js"></script> -->
+  <!-- <script src="../src/modules/map.js"></script> -->
+  <!-- <script src="../src/modules/event.js"></script> -->
+  <!-- <script src="../src/modules/search.js"></script> -->
+
+  <script>
+    // Draw the words from content.json into the tiles above.
+    document.addEventListener('DOMContentLoaded', function () { SITES.content.load('content.json'); });
+  </script>
+</body>
+</html>

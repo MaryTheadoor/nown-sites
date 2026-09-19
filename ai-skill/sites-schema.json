@@ -1,0 +1,479 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://nowndigital.app/sites-schema.json",
+  "title": "S.I.T.E.S Site Manifest",
+  "description": "Declarative spec for assembling a S.I.T.E.S site: a plate (site + theme + nav) composed of an ordered array of modular tiles. Validating this manifest is the contract an AI agent satisfies before emitting HTML/CSS/JS.",
+  "type": "object",
+  "required": [
+    "site",
+    "content"
+  ],
+  "definitions": {
+    "cssColor": {
+      "type": "string",
+      "pattern": "^(#[0-9A-Fa-f]{3,8}|rgba?\\([^)]*\\)|hsla?\\([^)]*\\)|color-mix\\([^)]*\\)|transparent|currentColor|inherit)$"
+    }
+  },
+  "properties": {
+    "site": {
+      "type": "object",
+      "description": "Identity + metadata for the site.",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Human-readable site name."
+        },
+        "baseUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "Canonical origin, e.g. https://nowndigital.app"
+        },
+        "description": {
+          "type": "string",
+          "description": "One-line site description (meta + SEO)."
+        },
+        "lang": {
+          "type": "string",
+          "default": "en",
+          "description": "HTML lang attribute."
+        },
+        "layout": {
+          "type": "object",
+          "description": "How the page lays its tiles out. 'auto' is the automatic auto-fit grid: tiles flow into as many equal columns as fit and per-tile spans do nothing. 'cols' is the configured 12-column grid (6 narrow) where each entry's layout.span applies. The scaffolding shells read this; the binder and baker apply the spans.",
+          "properties": {
+            "mode": {
+              "type": "string",
+              "enum": ["auto", "cols"],
+              "default": "auto"
+            }
+          },
+          "additionalProperties": false
+        },
+        "plate": {
+          "type": "object",
+          "description": "The background behind everything. Applied by the binder at load and by tools/bake.mjs at build time, so a page with JavaScript disabled looks identical — the background is the first thing painted and must not depend on a script. 'animation' drifts the ambient wash and degrades to the same static wash under prefers-reduced-motion.",
+          "properties": {
+            "mode": {
+              "type": "string",
+              "enum": ["ambient", "color", "image", "animation", "none"],
+              "default": "ambient",
+              "description": "'ambient' is the two radial washes, which follow the theme tokens. 'color' is a flat plate. 'image' puts an image behind everything. 'animation' drifts the ambient wash. 'none' removes the layer entirely."
+            },
+            "color": {
+              "$ref": "#/definitions/cssColor",
+              "description": "Used by 'color' (and available to the others). Any CSS colour, so a theme token's value or an explicit colour both work."
+            },
+            "image": {
+              "type": "string",
+              "description": "Used by 'image'. A path, a URL, or 'asset:<key>' to resolve through the asset map like a tile image."
+            }
+          },
+          "additionalProperties": false
+        },
+        "favicon": {
+          "type": "string",
+          "format": "uri",
+          "description": "Favicon URL."
+        },
+        "seo": {
+          "type": "object",
+          "description": "SEO metadata.",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "ogImage": {
+              "type": "string",
+              "format": "uri",
+              "description": "Legacy alias of seo.image, kept so existing content files stay valid."
+            },
+            "image": {
+              "type": "string",
+              "format": "uri",
+              "description": "Social share image (og:image / twitter:image) — 1200x630 raster, absolute or site-relative against baseUrl. Optional: without it no og:image is emitted."
+            },
+            "keywords": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "noindex": {
+              "type": "boolean",
+              "description": "Keep the WHOLE site out of search results — the pre-launch state. When true, tools/seo.mjs writes <meta name=\"robots\" content=\"noindex\"> into every page's SEO block, stops advertising sitemap.xml in robots.txt, and removes sitemap.xml. robots.txt stays crawlable on purpose: a Disallow stops the crawler fetching the page, so it never reads the noindex tag and the URL can stay indexed. A SITE setting rather than a per-page tag, because the decision is 'this site is not ready to be found', not 'this page differs from its neighbours'. Remove it (or set false) to go live; page-level noindex tags still work and are independent."
+            },
+            "pages": {
+              "type": "object",
+              "description": "OPTIONAL per-page metadata keyed by page path ('/', '/tiles.html'). Without an entry, tools/seo.mjs derives the title from that page's first headline and the description from its body copy, then falls back to seo.title / seo.description.",
+              "patternProperties": {
+                "^/": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "image": {
+                      "type": "string",
+                      "format": "uri"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "business": {
+          "type": "object",
+          "description": "OPTIONAL local-business details. When present, tools/seo.mjs emits an additional LocalBusiness JSON-LD node beside the WebSite node — the highest-leverage artifact for local search and AI answer engines. Omit it and the site emits WebSite-only JSON-LD (docs/SEO.md).",
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "Schema.org LocalBusiness subtype: 'LocalBusiness' (default), 'PawnShop', 'FoodEstablishment', 'HomeAndConstructionBusiness', ..."
+            },
+            "name": {
+              "type": "string",
+              "description": "Defaults to site.name."
+            },
+            "telephone": {
+              "type": "string",
+              "description": "E.164 where possible, e.g. +1-555-0100."
+            },
+            "priceRange": {
+              "type": "string",
+              "description": "e.g. '$$' or '$10-50'."
+            },
+            "address": {
+              "type": "object",
+              "description": "Emitted as a schema.org PostalAddress. Any subset may be given.",
+              "properties": {
+                "streetAddress": {
+                  "type": "string"
+                },
+                "addressLocality": {
+                  "type": "string"
+                },
+                "addressRegion": {
+                  "type": "string"
+                },
+                "postalCode": {
+                  "type": "string"
+                },
+                "addressCountry": {
+                  "type": "string"
+                }
+              }
+            },
+            "geo": {
+              "type": "object",
+              "description": "Emitted as schema.org GeoCoordinates. Both values must be numbers.",
+              "properties": {
+                "latitude": {
+                  "type": "number"
+                },
+                "longitude": {
+                  "type": "number"
+                }
+              }
+            },
+            "openingHours": {
+              "type": "array",
+              "description": "schema.org openingHours strings, e.g. 'Mo-Fr 09:00-18:00'.",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "theme": {
+      "type": "object",
+      "description": "Design tokens. Every color/radius/shadow should map to a token.",
+      "properties": {
+        "colors": {
+          "type": "object",
+          "patternProperties": {
+            "^[a-z0-9-]+$": {
+              "$ref": "#/definitions/cssColor"
+            }
+          },
+          "description": "LIGHT palette: maps to --color-<key>. e.g. { \"primary\": \"#1E4D4F\" } -> --color-primary. Accepts hex, rgb()/rgba(), hsl()/hsla(), color-mix(), transparent."
+        },
+        "dark": {
+          "type": "object",
+          "patternProperties": {
+            "^[a-z0-9-]+$": {
+              "$ref": "#/definitions/cssColor"
+            }
+          },
+          "description": "DARK palette overrides, emitted under [data-theme=\"dark\"]. Any color key omitted falls back to the light value."
+        },
+        "fonts": {
+          "type": "object",
+          "properties": {
+            "sans": {
+              "type": "string",
+              "description": "Font stack -> --font-sans."
+            },
+            "display": {
+              "type": "string",
+              "description": "Display font stack -> --font-display."
+            }
+          }
+        },
+        "radii": {
+          "type": "object",
+          "patternProperties": {
+            "^[a-z-]+$": {
+              "type": "string"
+            }
+          },
+          "description": "Radius tokens -> --radius-<key>."
+        },
+        "spacing": {
+          "type": "object",
+          "patternProperties": {
+            "^[a-z0-9-]+$": {
+              "type": "string"
+            }
+          },
+          "description": "Spacing tokens -> --space-<key>."
+        },
+        "shadows": {
+          "type": "object",
+          "patternProperties": {
+            "^[a-z-]+$": {
+              "type": "string"
+            }
+          },
+          "description": "Shadow tokens -> --shadow-<key>."
+        },
+        "defaultTheme": {
+          "type": "string",
+          "enum": [
+            "light",
+            "dark",
+            "system"
+          ],
+          "default": "system"
+        }
+      }
+    },
+    "assets": {
+      "type": "object",
+      "description": "Logical asset map: key -> path or Firebase Storage token URL. Pages may reference 'asset:<key>'. Populated by the admin uploader in firebase asset mode.",
+      "patternProperties": {
+        "^[A-Za-z0-9_-]+$": {
+          "type": "string"
+        }
+      }
+    },
+    "nav": {
+      "type": "array",
+      "description": "nav-dock links.",
+      "items": {
+        "type": "object",
+        "required": [
+          "label",
+          "href"
+        ],
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "href": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string",
+            "enum": [
+              "_self",
+              "_blank"
+            ]
+          },
+          "icon": {
+            "type": "string",
+            "description": "Optional inline SVG name / path hint."
+          }
+        }
+      }
+    },
+    "content": {
+      "type": "array",
+      "description": "Ordered sections; each becomes a tile in the plate.",
+      "items": {
+        "type": "object",
+        "required": [
+          "type"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Tile type \u2014 one of the catalog names.",
+            "enum": [
+              "hero",
+              "visit",
+              "products",
+              "keyword-landing",
+              "compact-keywords",
+              "content-card",
+              "code",
+              "media",
+              "video",
+              "gallery",
+              "feature",
+              "team",
+              "testimonial",
+              "quote",
+              "cta",
+              "product",
+              "event",
+              "contact-form",
+              "contact",
+              "map",
+              "menu",
+              "pricing",
+              "faq",
+              "search",
+              "social",
+              "nav-dock",
+              "announcement",
+              "footer"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "Stable element id / anchor."
+          },
+          "variant": {
+            "type": "string",
+            "description": "tile-<type>--<variant> modifier, applied to the tile root by the binder at load and by tools/bake.mjs at build time. The variants a type offers are declared in src/js/tile-registry.js (SITES.tileVariants) and check-site fails on one that is not declared or has no CSS."
+          },
+          "panel": {
+            "type": "string",
+            "enum": ["plate", "surface", "accent", "none"],
+            "description": "What goes inside this tile's box. A tile is always a rectangular panel on the grid — padding and a radius so it cannot collide with its neighbour — and this picks the fill. Omit it for a box you cannot see: padding and radius, no fill, so the content appears to sit on the background. 'surface' is the raised card treatment, 'accent' is a soft tint of the accent colour for visual pop, and 'none' removes the box entirely (no padding, no radius, no fill). Applied by the binder at load and tools/bake.mjs at build time."
+          },
+          "css": {
+            "type": "string",
+            "description": "A small block of CSS for this tile alone: DECLARATIONS ONLY, no selector. The framework scopes it for you by wrapping it in [data-tile-id=\"<id>\"], collected with every other tile's block into one site-level <style> by the binder at load and by tools/bake.mjs at build time. Enforced by SITES.cssLint: no braces (a brace would close the scope and the rest would become page-wide CSS), no at-rules, no angle brackets, and no hardcoded colours — rule 3 means var(--token) only, so a tile survives a re-theme and dark mode."
+          },
+          "layout": {
+            "type": "object",
+            "description": "Grid placement, applied by the binder at load and by tools/bake.mjs at build time. Only meaningful when the tile container is in configured mode (.sites-grid--cols); in automatic mode a span does nothing and check-site reports it.",
+            "properties": {
+              "span": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 12,
+                "description": "Columns to span in the wide tier (12-column grid)."
+              },
+              "spanSm": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 6,
+                "description": "Columns to span in the narrow tier (6-column grid)."
+              },
+              "start": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 12,
+                "description": "Explicit column start in the wide tier."
+              }
+            },
+            "additionalProperties": false
+          },
+          "config": {
+            "type": "object",
+            "description": "Tile-specific config. Left open per type; validated by convention/per-tile schemas.",
+            "additionalProperties": true,
+            "properties": {
+              "headline": {
+                "type": "string"
+              },
+              "body": {
+                "type": "string"
+              },
+              "media": {
+                "type": "object",
+                "properties": {
+                  "src": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "alt": {
+                    "type": "string"
+                  },
+                  "ratio": {
+                    "type": "string",
+                    "description": "e.g. 16/9, 1/1, 4/3."
+                  },
+                  "fit": {
+                    "type": "string",
+                    "enum": [
+                      "cover",
+                      "contain"
+                    ]
+                  }
+                }
+              },
+              "items": {
+                "type": "array",
+                "description": "Repeated entries (cards, gallery, features, testimonials...)."
+              },
+              "actions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "label",
+                    "href"
+                  ],
+                  "properties": {
+                    "label": {
+                      "type": "string"
+                    },
+                    "href": {
+                      "type": "string"
+                    },
+                    "style": {
+                      "type": "string",
+                      "enum": [
+                        "gold",
+                        "primary",
+                        "plum",
+                        "ghost",
+                        "outline"
+                      ]
+                    }
+                  }
+                }
+              },
+              "provider": {
+                "type": "string",
+                "description": "Embeddable-service provider key for tool tiles."
+              },
+              "endpoint": {
+                "type": "string",
+                "description": "Service endpoint (form action, calendar url, etc.)."
+              },
+              "keys": {
+                "type": "object",
+                "description": "Service-specific id/keys (map center, search index, sku)."
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

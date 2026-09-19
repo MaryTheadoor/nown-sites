@@ -1,0 +1,1397 @@
+{
+  "$schema": "../ai-skill/sites-schema.json",
+  "site": {
+    "name": "Nown S.I.T.E.S",
+    "baseUrl": "https://nownsite.com",
+    "description": "A website you own outright, built from modular parts. We can build it for you, or you can build it yourself for nothing.",
+    "lang": "en",
+    "seo": {
+      "title": "Own your website — a site you can take anywhere",
+      "description": "We build you a website you own outright, from modular parts. $500 once, first year of hosting free — or build one yourself for nothing.",
+      "image": "/assets/og-image.png",
+      "pages": {
+        "/": {
+          "title": "Own your website — a site you can take anywhere",
+          "description": "We build you a website you own outright, from modular parts. $500 once, first year of hosting free — or build one yourself for nothing."
+        },
+        "/tiles.html": {
+          "title": "Tile gallery — Nown S.I.T.E.S",
+          "description": "Every tile in the S.I.T.E.S catalog, rendered live on this page from a single content file."
+        },
+        "/quickstart.html": {
+          "title": "Quickstart — build a S.I.T.E.S site by hand",
+          "description": "Copy a starter page, paste tiles, put your words in a content file. No build step, no dependencies."
+        },
+        "/docs.html": {
+          "title": "The standard — Nown S.I.T.E.S",
+          "description": "The rules a compliant S.I.T.E.S site follows: no build step, tokens, breakpoint-free layout, copy as data."
+        },
+        "/blueprint.html": {
+          "title": "Blueprint format — Nown S.I.T.E.S",
+          "description": "Author a whole site as one Markdown file, then compile it to the content file."
+        },
+        "/admin.html": {
+          "title": "Nown S.I.T.E.S — Content Admin (this site)",
+          "description": "Edit this site's copy, theme and images. Not indexed."
+        },
+        "/builder.html": {
+          "title": "Nown S.I.T.E.S — Tile Builder",
+          "description": "Pick tiles, arrange them, edit the copy through the tile registry and export blueprint.md + content.json."
+        },
+        "/pricing.html": {
+          "title": "Pricing — build and hosting options | Nown S.I.T.E.S",
+          "description": "A $500 custom build, or build it yourself for nothing. Hosting and management is $79 a month, optional, first year free."
+        },
+        "/technical.html": {
+          "title": "Technical — how S.I.T.E.S works | Nown S.I.T.E.S",
+          "description": "The specification behind the framework: the grid, the content file, the tile contracts, and how to assemble a site by hand."
+        }
+      },
+      "noindex": true
+    }
+  },
+  "theme": {
+    "defaultTheme": "system",
+    "colors": {
+      "background": "#F7F8FA",
+      "surface": "#FFFFFF",
+      "surface-2": "#ECEEF3",
+      "text": "#14161A",
+      "text-muted": "#5B6472",
+      "primary": "#1B3A5C",
+      "primary-deep": "#12283F",
+      "accent": "#2F6FED",
+      "accent-deep": "#1E4FB8",
+      "accent-deep-2": "#163C8C",
+      "plum": "#7C5CFF",
+      "plum-deep": "#5B3FD6",
+      "on-accent": "#FFFFFF",
+      "glass": "rgba(255,255,255,.72)",
+      "glass-border": "rgba(228,232,240,.75)",
+      "dock": "rgba(255,255,255,.90)",
+      "dock-border": "rgba(228,232,240,.80)"
+    },
+    "dark": {
+      "background": "#0B0F17",
+      "surface": "#131A24",
+      "surface-2": "#1E2836",
+      "text": "#E7ECF3",
+      "text-muted": "#93A1B5",
+      "primary": "#6EA8FF",
+      "primary-deep": "#12283F",
+      "accent": "#6EA8FF",
+      "accent-deep-2": "#163C8C",
+      "glass": "rgba(19,26,36,.70)",
+      "glass-border": "rgba(110,168,255,.18)",
+      "dock": "rgba(19,26,36,.90)",
+      "dock-border": "rgba(110,168,255,.20)"
+    },
+    "fonts": {
+      "sans": "system-ui, -apple-system, \\\"Segoe UI\\\", Roboto, sans-serif",
+      "display": "Georgia, \\\"Times New Roman\\\", serif"
+    },
+    "radii": {
+      "md": "0.75rem",
+      "lg": "1rem",
+      "xl": "1.5rem"
+    }
+  },
+  "nav": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Pricing",
+      "href": "/pricing.html"
+    },
+    {
+      "label": "Builder",
+      "href": "/builder.html"
+    },
+    {
+      "label": "Tiles",
+      "href": "/tiles.html"
+    },
+    {
+      "label": "Technical",
+      "href": "/technical.html"
+    },
+    {
+      "label": "GitHub",
+      "href": "https://github.com/MaryTheadoor/nown-sites"
+    }
+  ],
+  "content": [
+    {
+      "id": "chrome-announcement",
+      "type": "announcement",
+      "config": {
+        "text": "Own your website outright — files and all. First year of hosting free with a custom build."
+      }
+    },
+    {
+      "id": "home-hero",
+      "type": "hero",
+      "config": {
+        "headline": "You should own your website. Not rent it.",
+        "body": "Most website builders keep your site on their platform. Stop paying and it is gone — and there is nothing to take with you. We build yours from standard parts, hand you the whole thing, and you can move it anywhere, any time. Or stay with us. Your call.",
+        "actions": [
+          {
+            "label": "Book a 15-minute call",
+            "href": "https://calendly.com/example/free-consultation",
+            "style": "gold"
+          },
+          {
+            "label": "Try the builder — free",
+            "href": "/builder.html",
+            "style": "ghost"
+          }
+        ],
+        "media": {
+          "src": "asset:hero-plate",
+          "alt": "Diagram of a plate holding a grid of tiles"
+        }
+      },
+      "panel": "accent"
+    },
+    {
+      "id": "home-why",
+      "type": "feature",
+      "config": {
+        "title": "What it is",
+        "items": [
+          {
+            "title": "It is built from parts",
+            "body": "Think Lego. A heading, a gallery, a menu, a contact form — each is a separate piece. We use the pieces your business actually needs and leave the rest in the box."
+          },
+          {
+            "title": "The parts fit together",
+            "body": "Take one out and the rest still stand. Add one next year without rebuilding what is already there, and nothing you add breaks something you already had."
+          },
+          {
+            "title": "And you keep the box",
+            "body": "The pieces are yours. Move them to another host, hand them to another designer, or stay with us — it is the same set of parts either way."
+          }
+        ]
+      },
+      "panel": "plate"
+    },
+    {
+      "id": "home-model",
+      "type": "feature",
+      "config": {
+        "title": "Four ways to get one",
+        "items": [
+          {
+            "title": "Build it here, in the browser",
+            "body": "Open the builder, pick your parts, put them in order, and watch the result as you go. Nothing to install, no account, and no cost."
+          },
+          {
+            "title": "Download it and do it yourself",
+            "body": "Take the files and work on them in whatever you already use. There is nothing to install and nothing to compile."
+          },
+          {
+            "title": "Let an AI build it for you",
+            "body": "Point an AI coding assistant at the project and describe what you want. It builds to a fixed set of rules, so it does not wander off."
+          },
+          {
+            "title": "Or pay us to do the lot",
+            "body": "$500 once, we build the whole thing, and we hand you the finished files. The first year of hosting is on us."
+          }
+        ]
+      },
+      "panel": "plate",
+      "css": "--grid-min: 400px;"
+    },
+    {
+      "id": "home-price",
+      "type": "pricing",
+      "config": {
+        "tier": "Have us build it",
+        "price": "$500",
+        "features": "Your whole site, built and tested\nThe finished files are yours, permanently\nFirst year of hosting and management free\nThen $79/month — or move it to any host you like\nNo contract, and nothing to cancel",
+        "actions": [
+          {
+            "label": "Book a 15-minute call",
+            "href": "https://calendly.com/example/free-consultation",
+            "style": "gold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "home-hosting",
+      "type": "pricing",
+      "config": {
+        "tier": "Or just the hosting",
+        "price": "$79/mo",
+        "features": "Entirely optional — the site works without us\nFirst year free when we build it\nOr $748 a year, which is two months free\nWe keep it online, updated and answered\nCancel whenever you like",
+        "actions": [
+          {
+            "label": "What is included",
+            "href": "/docs.html",
+            "style": "ghost"
+          }
+        ]
+      }
+    },
+    {
+      "id": "home-objections",
+      "type": "faq",
+      "config": {
+        "title": "Reasonable questions",
+        "items": [
+          {
+            "question": "I am not technical. Is that a problem?",
+            "answer": "No. If we build it, you get one simple screen for changing words, colours and photos — no code, and nothing you can break. If you would rather do it yourself, that is free, and we will point you at the two or three things worth knowing."
+          },
+          {
+            "question": "Why would I pay monthly if I own the site?",
+            "answer": "You do not have to. Hosting and management is optional. It covers keeping the site online, updates, and a person to call when something needs changing. Take the files somewhere else and stop paying whenever you like."
+          },
+          {
+            "question": "How is this different from Wix or Squarespace?",
+            "answer": "With those, your site lives inside their platform — that is what the monthly fee is renting. Here it is a set of files you hold. It is also why this page appears in a fraction of a second: there is no platform running behind it."
+          },
+          {
+            "question": "What happens if I want to leave?",
+            "answer": "You take the files and go. Any host will run them. We would rather earn the $79 a month than hold your website hostage for it."
+          },
+          {
+            "question": "Will a new website actually get me customers?",
+            "answer": "Usually not on its own. If you are a local business, most of your visitors come from Google Maps and your Google Business Profile, not from the website. A good site supports that — it repeats your address and hours exactly, and catches the searches Maps cannot serve. If your profile is out of date, fixing that may matter more than the site, and we will tell you so on the call."
+          }
+        ]
+      },
+      "panel": "surface"
+    },
+    {
+      "id": "home-cta",
+      "type": "cta",
+      "config": {
+        "headline": "Build it once. Own it forever.",
+        "body": "Book a short call and we will tell you straight whether you need a new site, and what it would cost. Or build one yourself for nothing. Both are real options.",
+        "actions": [
+          {
+            "label": "Book a 15-minute call",
+            "href": "https://calendly.com/example/free-consultation",
+            "style": "gold"
+          },
+          {
+            "label": "Build one yourself",
+            "href": "/builder.html",
+            "style": "ghost"
+          }
+        ]
+      },
+      "panel": "accent"
+    },
+    {
+      "id": "tiles-hero",
+      "type": "hero",
+      "config": {
+        "headline": "The tile gallery",
+        "body": "Every tile in the catalog, rendered live on this page from one content file. Copy the markup from the kit and paste it into your own plate.",
+        "actions": [
+          {
+            "label": "Open the tile kit",
+            "href": "https://github.com/MaryTheadoor/nown-sites/blob/main/templates/TILE-KIT.md",
+            "style": "ghost"
+          }
+        ]
+      },
+      "page": "/tiles.html"
+    },
+    {
+      "id": "tile-feature",
+      "type": "feature",
+      "config": {
+        "title": "feature",
+        "items": [
+          {
+            "title": "Value proposition",
+            "body": "A short statement of why this matters."
+          },
+          {
+            "title": "Second point",
+            "body": "Cards flow into as many columns as the container allows."
+          }
+        ]
+      },
+      "page": "/tiles.html"
+    },
+    {
+      "id": "tile-content-card",
+      "type": "content-card",
+      "config": {
+        "headline": "content-card",
+        "body": "A heading, a paragraph and a link. The workhorse tile for articles, services or teasers.",
+        "actions": [
+          {
+            "label": "Example link",
+            "href": "/",
+            "style": "ghost"
+          }
+        ]
+      },
+      "page": "/tiles.html"
+    },
+    {
+      "id": "tile-media",
+      "type": "media",
+      "config": {
+        "media": {
+          "src": "asset:tile-media",
+          "alt": "Placeholder artwork"
+        },
+        "caption": "media — one image, reserved space, no layout shift."
+      },
+      "page": "/tiles.html"
+    },
+    {
+      "id": "tile-gallery",
+      "type": "gallery",
+      "config": {
+        "title": "gallery",
+        "body": "An auto-fit grid — one column on a phone, more as the container widens.",
+        "items": [
+          {
+            "src": "asset:tile-gallery-1",
+            "alt": "Gallery placeholder one"
+          },
+          {
+            "src": "asset:tile-gallery-2",
+            "alt": "Gallery placeholder two"
+          },
+          {
+            "src": "asset:tile-gallery-3",
+            "alt": "Gallery placeholder three"
+          }
+        ]
+      },
+      "page": "/tiles.html"
+    },
+    {
+      "id": "tile-video",
+      "type": "video",
+      "config": {
+        "src": "",
+        "caption": "video — the embed loads only when scrolled into view."
+      },
+      "page": "/tiles.html"
+    },
+    {
+      "id": "tile-team",
+      "type": "team",
+      "config": {
+        "name": "Alex Rivera",
+        "role": "Framework maintainer",
+        "media": {
+          "src": "asset:tile-team",
+          "alt": "Portrait placeholder"
+        }
+      },
+      "page": "/tiles.html"
+    },
+    {
+      "id": "tile-testimonial",
+      "type": "testimonial",
+      "config": {
+        "quote": "We replaced a subscription builder with plain files. Faster, cheaper, and nobody can switch it off.",
+        "attribution": "A satisfied site owner"
+      },
+      "page": "/tiles.html"
+    },
+    {
+      "id": "tile-quote",
+      "type": "quote",
+      "config": {
+        "quote": "The web was meant to be hand-made.",
+        "attribution": "S.I.T.E.S"
+      },
+      "page": "/tiles.html"
+    },
+    {
+      "id": "tile-pricing",
+      "type": "pricing",
+      "config": {
+        "tier": "Self-hosted",
+        "price": "$0 forever",
+        "features": "Every tile in the catalog\nContent admin included\nNo build step\nNo vendor lock-in",
+        "actions": [
+          {
+            "label": "Get the framework",
+            "href": "https://github.com/MaryTheadoor/nown-sites",
+            "style": "gold"
+          }
+        ]
+      },
+      "page": "/tiles.html"
+    },
+    {
+      "id": "tile-product",
+      "type": "product",
+      "config": {
+        "title": "Example product",
+        "price": "$49",
+        "variant": "One size",
+        "media": {
+          "src": "asset:tile-product",
+          "alt": "Product placeholder"
+        }
+      },
+      "page": "/tiles.html"
+    },
+    {
+      "id": "tile-menu",
+      "type": "menu",
+      "config": {
+        "title": "menu",
+        "categories": [
+          {
+            "name": "Small plates",
+            "items": "Edamame|6\nKaraage|11"
+          },
+          {
+            "name": "Mains",
+            "items": "Ramen|16"
+          }
+        ]
+      },
+      "page": "/tiles.html"
+    },
+    {
+      "id": "tile-faq",
+      "type": "faq",
+      "config": {
+        "title": "faq",
+        "items": [
+          {
+            "question": "Do I need a build step?",
+            "answer": "No. The files you write are the files you deploy."
+          },
+          {
+            "question": "Can I use a framework?",
+            "answer": "You can, but you give up the point. Tiles are plain HTML and CSS."
+          }
+        ]
+      },
+      "page": "/tiles.html"
+    },
+    {
+      "id": "tile-social",
+      "type": "social",
+      "config": {
+        "links": [
+          {
+            "label": "GitHub",
+            "href": "https://github.com/MaryTheadoor/nown-sites"
+          },
+          {
+            "label": "Instagram",
+            "href": "https://instagram.com/nowndigital"
+          }
+        ]
+      },
+      "page": "/tiles.html"
+    },
+    {
+      "id": "tile-contact",
+      "type": "contact",
+      "config": {
+        "headline": "contact",
+        "body": "A contact block with direct details and optional links.",
+        "lines": [
+          {
+            "label": "Email",
+            "value": "hello@nownsite.com",
+            "href": "mailto:hello@nownsite.com"
+          },
+          {
+            "label": "Site",
+            "value": "nownsite.com",
+            "href": "https://nownsite.com"
+          }
+        ]
+      },
+      "page": "/tiles.html"
+    },
+    {
+      "id": "tile-contact-form",
+      "type": "contact-form",
+      "config": {
+        "title": "contact-form",
+        "provider": "formspree",
+        "endpoint": "https://formspree.io/f/yourFormId"
+      },
+      "page": "/tiles.html"
+    },
+    {
+      "id": "tile-map",
+      "type": "map",
+      "config": {
+        "center": "45.6770,-111.0429",
+        "zoom": "11",
+        "marker": "S.I.T.E.S"
+      },
+      "page": "/tiles.html"
+    },
+    {
+      "id": "tile-event",
+      "type": "event",
+      "config": {
+        "title": "event",
+        "body": "Scheduling without leaving the page.",
+        "calendarUrl": "https://calendly.com/example/free-consultation"
+      },
+      "page": "/tiles.html"
+    },
+    {
+      "id": "tile-search",
+      "type": "search",
+      "config": {
+        "placeholder": "Search the docs…",
+        "index": "/pagefind/"
+      },
+      "page": "/tiles.html"
+    },
+    {
+      "id": "tile-cta",
+      "type": "cta",
+      "config": {
+        "headline": "cta",
+        "body": "A closing band that asks for the next step.",
+        "actions": [
+          {
+            "label": "Start building",
+            "href": "https://github.com/MaryTheadoor/nown-sites",
+            "style": "gold"
+          }
+        ]
+      },
+      "page": "/tiles.html"
+    },
+    {
+      "id": "pr-hero",
+      "type": "hero",
+      "config": {
+        "headline": "One build fee. Optional hosting. No contract.",
+        "body": "We build your site for $500. After that, hosting and management is $79 a month and entirely optional — your first year is free either way. If you would rather run it yourself, the files are yours and any host will do.",
+        "actions": [
+          {
+            "label": "Book a 15-minute call",
+            "href": "https://calendly.com/example/free-consultation",
+            "style": "gold"
+          },
+          {
+            "label": "Build one yourself — free",
+            "href": "/builder.html",
+            "style": "ghost"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pr-build",
+      "type": "pricing",
+      "config": {
+        "tier": "We build it",
+        "price": "$500",
+        "features": "Your whole site, built and tested\nThe finished files are yours, permanently\nFirst year of hosting and management free\nNo contract, and nothing to cancel",
+        "actions": [
+          {
+            "label": "Book a 15-minute call",
+            "href": "https://calendly.com/example/free-consultation",
+            "style": "gold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pr-hosting",
+      "type": "pricing",
+      "config": {
+        "tier": "We host and manage it",
+        "price": "$79/mo",
+        "features": "Free for the first year after a build\nOr $748 a year, which is two months free\nWe keep it online, updated and answered\nCancel whenever you like\nOr host it yourself and pay us nothing",
+        "actions": [
+          {
+            "label": "How to host it yourself",
+            "href": "/technical.html",
+            "style": "ghost"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pr-deploy",
+      "type": "feature",
+      "config": {
+        "title": "Two ways to run it",
+        "items": [
+          {
+            "title": "You host it",
+            "body": "Take the finished files to whatever host you like — Cloudflare Pages, Netlify, GitHub Pages, or plain shared hosting. Your bill, your control, and we are not in the loop."
+          },
+          {
+            "title": "We host it",
+            "body": "$79 a month and you never think about it again. We deploy it, keep it online, apply updates, and answer when something needs changing. Cancel whenever you like."
+          }
+        ]
+      }
+    },
+    {
+      "id": "pr-included",
+      "type": "faq",
+      "config": {
+        "title": "What is included, and what is not",
+        "items": [
+          {
+            "question": "What exactly do I get for the $500?",
+            "answer": "A complete site: your pages, your words, your photos, built and tested on a phone and on a desktop. You get the finished files, permanently. The first year of hosting and management is included, so the first thing you pay after that is optional."
+          },
+          {
+            "question": "Is the monthly payment mandatory?",
+            "answer": "No. Hosting and management is a service, not a lock. Take the files to another host and stop paying whenever you like — the site keeps working. That is the difference between this and a site builder."
+          },
+          {
+            "question": "Do you take a cut of my sales?",
+            "answer": "No. There is no checkout on your site at launch — we link out to wherever you already sell, and you keep your existing payment setup and your own customer relationships."
+          },
+          {
+            "question": "Do you do marketing as well?",
+            "answer": "Not as part of the monthly. The site is built to be found: it repeats your address and opening hours exactly, and it carries the machine-readable details search engines read. Marketing and SEO is a separate service if you want it."
+          },
+          {
+            "question": "What if I need changes later?",
+            "answer": "Small ones you can make yourself from a simple admin screen — words, colours, photos, at no cost. Bigger changes are what the monthly covers, and anything beyond that we will quote."
+          },
+          {
+            "question": "Can I see it before I commit?",
+            "answer": "Yes. The builder on this site lets you assemble a page and read it live without an account or a card. It is the same engine we would use to build yours."
+          }
+        ]
+      }
+    },
+    {
+      "id": "pr-cta",
+      "type": "cta",
+      "config": {
+        "headline": "Tell us what you need",
+        "body": "Fifteen minutes is enough to say whether a new site is what you need, and what it would cost. No pitch, and no obligation.",
+        "actions": [
+          {
+            "label": "Book a 15-minute call",
+            "href": "https://calendly.com/example/free-consultation",
+            "style": "gold"
+          },
+          {
+            "label": "Try the builder first",
+            "href": "/builder.html",
+            "style": "ghost"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tech-hero",
+      "type": "hero",
+      "config": {
+        "headline": "For the people who will build it",
+        "body": "S.I.T.E.S is a specification, not a library. Nothing to install, nothing to compile, and no dependency to keep current. These pages are the contracts: what a compliant site is, how the grid works, how a site is authored, and how to assemble one by hand.",
+        "actions": [
+          {
+            "label": "Open the quickstart",
+            "href": "/quickstart.html",
+            "style": "gold"
+          },
+          {
+            "label": "Read the standard",
+            "href": "/docs.html",
+            "style": "ghost"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tech-what",
+      "type": "feature",
+      "config": {
+        "title": "What you are actually getting",
+        "items": [
+          {
+            "title": "A specification, not a dependency",
+            "body": "The rules a compliant site follows — ten of them, and this site obeys every one. Nothing to upgrade, because there is nothing to install."
+          },
+          {
+            "title": "A grid with two modes",
+            "body": "An automatic auto-fit grid for ordinary pages, and a configured twelve-column grid when a layout has to be exact. A container query per tile handles every screen without a breakpoint."
+          },
+          {
+            "title": "One content file",
+            "body": "Copy, theme, navigation and images live in one JSON document. The markup owns structure; the file owns the words, and the admin edits it."
+          },
+          {
+            "title": "Tiles that compose",
+            "body": "Every part declares the fields it accepts, so the admin, the builder and the linter all read one declaration instead of three lists that drift."
+          }
+        ]
+      }
+    },
+    {
+      "id": "tech-next",
+      "type": "feature",
+      "config": {
+        "title": "Where to go next",
+        "items": [
+          {
+            "title": "Quickstart — build one by hand",
+            "body": "Copy a starter page, paste tiles into it, put your words in the content file. A text editor and a browser are the whole toolchain."
+          },
+          {
+            "title": "The grid",
+            "body": "How the two layout modes work, why there are no breakpoints, and how a tile reflows by its own width rather than the window width."
+          },
+          {
+            "title": "The standard",
+            "body": "The full rule set with conformance levels, and the reasoning behind each rule rather than just the rule."
+          },
+          {
+            "title": "The blueprint format",
+            "body": "Author an entire site as one Markdown document, then compile it to the content file. This is how an agent writes a site."
+          }
+        ]
+      }
+    },
+    {
+      "id": "tech-cta",
+      "type": "cta",
+      "config": {
+        "headline": "The repository is the documentation",
+        "body": "Every rule in the standard is implemented in the code you are reading, and this site is built with it. Clone it and point your editor — or your agent — at it.",
+        "actions": [
+          {
+            "label": "View on GitHub",
+            "href": "https://github.com/MaryTheadoor/nown-sites",
+            "style": "gold"
+          },
+          {
+            "label": "Open the quickstart",
+            "href": "/quickstart.html",
+            "style": "ghost"
+          }
+        ]
+      }
+    },
+    {
+      "id": "chrome-footer",
+      "type": "footer",
+      "config": {
+        "brand": "Nown S.I.T.E.S",
+        "tagline": "Built with the framework it documents.",
+        "copyright": "© 2026 Nown Digital · MIT licensed",
+        "links": [
+          {
+            "label": "Pricing",
+            "href": "/pricing.html"
+          },
+          {
+            "label": "Builder",
+            "href": "/builder.html"
+          },
+          {
+            "label": "Tiles",
+            "href": "/tiles.html"
+          },
+          {
+            "label": "Technical",
+            "href": "/technical.html"
+          },
+          {
+            "label": "Quickstart",
+            "href": "/quickstart.html"
+          },
+          {
+            "label": "Grid",
+            "href": "/grid.html"
+          },
+          {
+            "label": "Docs",
+            "href": "/docs.html"
+          },
+          {
+            "label": "Blueprint",
+            "href": "/blueprint.html"
+          },
+          {
+            "label": "GitHub",
+            "href": "https://github.com/MaryTheadoor/nown-sites"
+          }
+        ]
+      },
+      "page": "/tiles.html"
+    },
+    {
+      "id": "qs-hero",
+      "type": "hero",
+      "config": {
+        "headline": "Build it by hand",
+        "body": "No AI, no build step. Copy a starter page, paste tiles into it, put your words in\na content file. A text editor and a browser are the whole toolchain.",
+        "actions": [
+          {
+            "label": "See the tiles",
+            "href": "/tiles.html",
+            "style": "ghost"
+          }
+        ]
+      },
+      "page": "/quickstart.html"
+    },
+    {
+      "id": "qs-loop",
+      "type": "feature",
+      "config": {
+        "title": "The loop",
+        "items": [
+          {
+            "title": "1 · Copy the starter",
+            "body": "Take templates/plate.html, rename it index.html. It already has the plate, the nav and the footer."
+          },
+          {
+            "title": "2 · Paste a tile",
+            "body": "Pick a tile from the kit, paste its markup inside <main>."
+          },
+          {
+            "title": "3 · Add the words",
+            "body": "Put the matching entry in content.json — same id as the markup's data-tile-id."
+          },
+          {
+            "title": "4 · Refresh",
+            "body": "That is the whole cycle. Change a word in the JSON and watch it move."
+          }
+        ]
+      },
+      "page": "/quickstart.html"
+    },
+    {
+      "id": "qs-serve",
+      "type": "code",
+      "config": {
+        "title": "Serve it locally",
+        "language": "bash",
+        "code": "cd my-site\npython3 -m http.server 8080"
+      },
+      "page": "/quickstart.html"
+    },
+    {
+      "id": "qs-needs",
+      "type": "feature",
+      "config": {
+        "title": "What you need",
+        "items": [
+          {
+            "title": "You need",
+            "body": "A text editor, a browser, and Python (or any static server) to preview locally. Some HTML and CSS familiarity helps."
+          },
+          {
+            "title": "You do not need",
+            "body": "Node, npm, a bundler, a framework, a build pipeline, or a hosting account to start."
+          },
+          {
+            "title": "Coming from a site builder?",
+            "body": "If you can drag a section onto a page, you can paste one. The mental model is three ideas — see the kit's primer."
+          }
+        ]
+      },
+      "page": "/quickstart.html"
+    },
+    {
+      "id": "qs-check",
+      "type": "code",
+      "config": {
+        "title": "Check it",
+        "language": "bash",
+        "code": "node tools/check-site.mjs public"
+      },
+      "page": "/quickstart.html"
+    },
+    {
+      "id": "qs-kit",
+      "type": "content-card",
+      "config": {
+        "headline": "The two files that teach it",
+        "body": "plate.html is the starter; TILE-KIT.md holds every tile's markup and its content entry, ready to copy.",
+        "actions": [
+          {
+            "label": "Open the tile kit",
+            "href": "https://github.com/MaryTheadoor/nown-sites/blob/main/templates/TILE-KIT.md",
+            "style": "ghost"
+          }
+        ]
+      },
+      "page": "/quickstart.html"
+    },
+    {
+      "id": "qs-cta",
+      "type": "cta",
+      "config": {
+        "headline": "Ship it anywhere",
+        "body": "Copy the folder plus the framework files, upload to Firebase Hosting, Cloudflare Pages, GitHub Pages, Netlify or IPFS. Nothing to build.",
+        "actions": [
+          {
+            "label": "Read the deployment guide",
+            "href": "https://github.com/MaryTheadoor/nown-sites/blob/main/docs/DEPLOYMENT.md",
+            "style": "gold"
+          }
+        ]
+      },
+      "page": "/quickstart.html"
+    },
+    {
+      "id": "docs-hero",
+      "type": "hero",
+      "config": {
+        "headline": "The standard",
+        "body": "S.I.T.E.S is a specification, not a library. These are the rules a compliant site\nfollows — everything on this site obeys them.",
+        "actions": [
+          {
+            "label": "Read the full spec",
+            "href": "https://github.com/MaryTheadoor/nown-sites/blob/main/docs/SPEC.md",
+            "style": "gold"
+          }
+        ]
+      },
+      "page": "/docs.html"
+    },
+    {
+      "id": "docs-rules",
+      "type": "feature",
+      "config": {
+        "title": "The hard rules",
+        "items": [
+          {
+            "title": "No build step",
+            "body": "Plain .html, .css and .js. No bundler, no package manager, nothing to compile — the source is the site."
+          },
+          {
+            "title": "Tokens, never literals",
+            "body": "Every colour, space, radius and shadow comes from a CSS custom property. That is what makes re-theming instant."
+          },
+          {
+            "title": "Breakpoint-free layout",
+            "body": "One auto-fit grid handles the macro layout; container queries let a tile adapt to its own width, not the window."
+          },
+          {
+            "title": "Copy is data",
+            "body": "Editable words live in the content file and bind into slots. The HTML owns structure only."
+          },
+          {
+            "title": "Progressive by default",
+            "body": "The page reads correctly with JavaScript disabled; behaviour is layered on top."
+          },
+          {
+            "title": "Services, not vendors",
+            "body": "Forms, maps, payments and AI are swappable adapters selected by configuration — never hard-coded into a tile."
+          }
+        ]
+      },
+      "page": "/docs.html"
+    },
+    {
+      "id": "docs-grid",
+      "type": "code",
+      "config": {
+        "title": "The whole responsive system",
+        "language": "css",
+        "code": "/* macro layout — no media queries */\n.sites-grid {\ndisplay: grid;\ngrid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\ngap: 1.5rem;\n}\n\n/* micro layout — a tile that knows its own width */\n.tile { container-type: inline-size; }\n@container (min-width: 720px) { .tile-hero:has(.media) { grid-template-columns: 1.1fr .9fr; } }"
+      },
+      "page": "/docs.html"
+    },
+    {
+      "id": "docs-levels",
+      "type": "feature",
+      "config": {
+        "title": "Conformance",
+        "items": [
+          {
+            "title": "L1 Structural",
+            "body": "The plate and tiles model, with tiles built to the naming and data contract."
+          },
+          {
+            "title": "L2 Presentation",
+            "body": "Full tokenization, breakpoint-free layout, accessible and progressive."
+          },
+          {
+            "title": "L3 Content-managed",
+            "body": "Copy externalised to a schema-valid content file, editable from the admin."
+          },
+          {
+            "title": "L4 Managed and sovereign",
+            "body": "L3 plus a portable storage adapter and no third-party trackers. This site targets L4."
+          }
+        ]
+      },
+      "page": "/docs.html"
+    },
+    {
+      "id": "docs-faq",
+      "type": "faq",
+      "config": {
+        "title": "Questions",
+        "items": [
+          {
+            "question": "Do I have to use the content file?",
+            "answer": "No. For a small static page you can write the copy straight into the HTML. The moment someone else needs to edit it, move the words into the content file."
+          },
+          {
+            "question": "Can I add my own CSS?",
+            "answer": "Yes — in your own stylesheet, using the tokens. Never hardcode colours, or re-theming stops working."
+          },
+          {
+            "question": "Is there a JavaScript framework?",
+            "answer": "No, and that is the point. Tiles register their own behaviour through SITES.register and stay scoped to their element."
+          }
+        ]
+      },
+      "page": "/docs.html"
+    },
+    {
+      "id": "docs-cta",
+      "type": "cta",
+      "config": {
+        "headline": "Go deeper",
+        "body": "The repository holds the architecture, module spec, content model, theme engine, assets and integration specs.",
+        "actions": [
+          {
+            "label": "Browse the docs",
+            "href": "https://github.com/MaryTheadoor/nown-sites/tree/main/docs",
+            "style": "gold"
+          }
+        ]
+      },
+      "page": "/docs.html"
+    },
+    {
+      "id": "bp-hero",
+      "type": "hero",
+      "config": {
+        "headline": "Write it as a blueprint",
+        "body": "A site can be authored as one Markdown file — front matter for the site, theme and\nnav, then one section per tile. Compile it to content.json, then build the pages.",
+        "actions": [
+          {
+            "label": "See the compiler",
+            "href": "https://github.com/MaryTheadoor/nown-sites/blob/main/tools/blueprint.mjs",
+            "style": "ghost"
+          }
+        ]
+      },
+      "page": "/blueprint.html"
+    },
+    {
+      "id": "bp-front",
+      "type": "code",
+      "config": {
+        "title": "Front matter",
+        "language": "yaml",
+        "code": "---\nsite:\nname: My site\nbaseUrl: https://example.com\ntheme:\ncolors: { background: \"#F7F8FA\", primary: \"#1B3A5C\", accent: \"#2F6FED\" }\ndark:   { background: \"#0B0F17\", text: \"#E7ECF3\" }\nnav:\n- Home: /\n- Services: /services.html\nintegrations:\nforms: formspree\n---"
+      },
+      "page": "/blueprint.html"
+    },
+    {
+      "id": "bp-tile",
+      "type": "code",
+      "config": {
+        "title": "One section per tile",
+        "language": "markdown",
+        "code": "path: /\n\ndescription: Opening band.\nid: home-hero\nheadline: Your headline\nbody: |\nA sentence that explains what this is.\nactions:\n- label: Get started\nhref: /contact\nstyle: gold"
+      },
+      "page": "/blueprint.html"
+    },
+    {
+      "id": "bp-flow",
+      "type": "feature",
+      "config": {
+        "title": "The pipeline",
+        "items": [
+          {
+            "title": "Gather",
+            "body": "Fill the intake form — business, brand, sitemap, per-tile copy, integrations."
+          },
+          {
+            "title": "Author",
+            "body": "Write the blueprint. Humans and AI agents both produce this format, so either can pick up the other's work."
+          },
+          {
+            "title": "Compile",
+            "body": "tools/blueprint.mjs emits content.json and warns about unknown tiles or unregistered fields."
+          },
+          {
+            "title": "Compose",
+            "body": "Paste the tile markup into a page. Structure and CSS are fixed; the words come from the file."
+          }
+        ]
+      },
+      "page": "/blueprint.html"
+    },
+    {
+      "id": "bp-run",
+      "type": "content-card",
+      "config": {
+        "headline": "One command",
+        "body": "The compiler is build-time only — the delivered site stays dependency-free. It validates tile types and field names against the tile registry, so a typo becomes a warning rather than a broken page.",
+        "actions": [
+          {
+            "label": "Read the format spec",
+            "href": "https://github.com/MaryTheadoor/nown-sites/blob/main/docs/BLUEPRINT-FORMAT.md",
+            "style": "ghost"
+          }
+        ]
+      },
+      "page": "/blueprint.html"
+    },
+    {
+      "id": "bp-faq",
+      "type": "faq",
+      "config": {
+        "title": "Questions",
+        "items": [
+          {
+            "question": "Is the blueprint required?",
+            "answer": "No. It is a convenience for authoring and for AI collaboration. You can edit content.json directly, or edit the copy in the admin."
+          },
+          {
+            "question": "Can an AI write the blueprint?",
+            "answer": "Yes — that is the intended division of labour. The AI drafts the blueprint, the compiler produces the site, the owner maintains the copy in the admin."
+          }
+        ]
+      },
+      "page": "/blueprint.html"
+    },
+    {
+      "id": "grid-hero",
+      "type": "hero",
+      "config": {
+        "headline": "The grid",
+        "body": "Two ways to lay tiles out. The automatic grid fits as many columns as it can —\nzero configuration. The configured grid gives you 12 columns on wide containers\nand 6 on narrow ones, and every tile declares its own width.",
+        "actions": [
+          {
+            "label": "See the tiles",
+            "href": "/tiles.html",
+            "style": "ghost"
+          }
+        ]
+      },
+      "page": "/grid.html"
+    },
+    {
+      "id": "grid-modes",
+      "type": "feature",
+      "config": {
+        "title": "Two modes",
+        "items": [
+          {
+            "title": "Automatic — .sites-grid",
+            "body": "repeat(auto-fit, minmax(300px, 1fr)). No breakpoints, no column maths. Perfect for rows of equal cards."
+          },
+          {
+            "title": "Configured — .sites-grid--cols",
+            "body": "A 12-column grid (6 when narrow) where each tile says how wide it is with data-span. For deliberate layouts."
+          }
+        ]
+      },
+      "page": "/grid.html"
+    },
+    {
+      "id": "grid-auto-code",
+      "type": "code",
+      "config": {
+        "title": "Automatic",
+        "language": "html",
+        "code": "<div class=\"sites-grid\">\n<article class=\"tile tile-feature\">…</article>\n<article class=\"tile tile-feature\">…</article>\n<article class=\"tile tile-feature\">…</article>\n</div>\n<!-- 1 / 2 / 3 / 4 columns, decided by the container. Nothing to configure. -->"
+      },
+      "page": "/grid.html"
+    },
+    {
+      "id": "grid-cols-code",
+      "type": "code",
+      "config": {
+        "title": "Configured",
+        "language": "html",
+        "code": "<div class=\"sites-grid sites-grid--cols\">\n<article class=\"tile tile-card\" data-span=\"4\">one third</article>\n<article class=\"tile tile-card\" data-span=\"4\">one third</article>\n<article class=\"tile tile-card\" data-span=\"4\">one third</article>\n\n<article class=\"tile tile-card\" data-span=\"8\">two thirds</article>\n<article class=\"tile tile-card\" data-span=\"4\">one third</article>\n\n<article class=\"tile tile-card\" data-span-sm=\"2\" data-span=\"4\">\nhalf on a phone, one third on desktop\n</article>\n</div>"
+      },
+      "page": "/grid.html"
+    },
+    {
+      "id": "gd-4a",
+      "type": "content-card",
+      "config": {
+        "headline": "data-span=\"4\"",
+        "body": "A third of the wide grid. On the narrow tier this is full width."
+      },
+      "page": "/grid.html"
+    },
+    {
+      "id": "gd-4b",
+      "type": "content-card",
+      "config": {
+        "headline": "data-span=\"4\"",
+        "body": "Three of these fill one deliberate row."
+      },
+      "page": "/grid.html"
+    },
+    {
+      "id": "gd-4c",
+      "type": "content-card",
+      "config": {
+        "headline": "data-span=\"4\"",
+        "body": "Change one number and the whole row rearranges."
+      },
+      "page": "/grid.html"
+    },
+    {
+      "id": "gd-8",
+      "type": "content-card",
+      "config": {
+        "headline": "data-span=\"8\"",
+        "body": "Two thirds. Pair an 8 with a 4 for an asymmetric row."
+      },
+      "page": "/grid.html"
+    },
+    {
+      "id": "gd-4d",
+      "type": "content-card",
+      "config": {
+        "headline": "data-span=\"4\"",
+        "body": "The narrow companion to the 8 above."
+      },
+      "page": "/grid.html"
+    },
+    {
+      "id": "gd-sm-a",
+      "type": "content-card",
+      "config": {
+        "headline": "narrow 1",
+        "body": "data-span-sm=\"2\" — three across even on a phone."
+      },
+      "page": "/grid.html"
+    },
+    {
+      "id": "gd-sm-b",
+      "type": "content-card",
+      "config": {
+        "headline": "narrow 2",
+        "body": "The same tile also declares data-span=\"4\" for the wide tier."
+      },
+      "page": "/grid.html"
+    },
+    {
+      "id": "gd-sm-c",
+      "type": "content-card",
+      "config": {
+        "headline": "narrow 3",
+        "body": "Two numbers, two screen sizes, no media queries in your code."
+      },
+      "page": "/grid.html"
+    },
+    {
+      "id": "grid-live",
+      "type": "feature",
+      "config": {
+        "title": "Live: three of twelve",
+        "items": [
+          {
+            "title": "What you see below",
+            "body": "Real tiles with data-span, not a picture. Resize the window and watch the tiers switch."
+          }
+        ]
+      },
+      "page": "/grid.html"
+    },
+    {
+      "id": "grid-spans",
+      "type": "feature",
+      "config": {
+        "title": "Spans",
+        "items": [
+          {
+            "title": "data-span=\"4\"",
+            "body": "Three across on the wide tier. Any whole number from 1 to 12."
+          },
+          {
+            "title": "data-span=\"8\"",
+            "body": "Two thirds — pair it with a 4 for a classic asymmetric row."
+          },
+          {
+            "title": "data-span-sm=\"2\"",
+            "body": "Three across on the narrow tier too (spans of the 6-column narrow grid)."
+          },
+          {
+            "title": "no data-span",
+            "body": "Full width, one tile per row. The safe default."
+          }
+        ]
+      },
+      "page": "/grid.html"
+    },
+    {
+      "id": "grid-align",
+      "type": "feature",
+      "config": {
+        "title": "Alignment",
+        "items": [
+          {
+            "title": ".sites-grid--start",
+            "body": "Tiles size to their own content instead of stretching to equal heights."
+          },
+          {
+            "title": ".tile--center",
+            "body": "Centres a tile's text and its button row."
+          },
+          {
+            "title": ".tile--end",
+            "body": "Pushes text and buttons to the end (right in a left-to-right language)."
+          },
+          {
+            "title": "bottom-aligned buttons",
+            "body": "Buttons in cards, pricing tiers and products sit on the row baseline automatically, however much copy the neighbours carry."
+          }
+        ]
+      },
+      "page": "/grid.html"
+    },
+    {
+      "id": "grid-cta",
+      "type": "cta",
+      "config": {
+        "headline": "Configure it, or leave it alone",
+        "body": "Most sites never need data-span. Reach for the configured grid when a row should be deliberately uneven.",
+        "actions": [
+          {
+            "label": "Read the architecture notes",
+            "href": "https://github.com/MaryTheadoor/nown-sites/blob/main/docs/ARCHITECTURE.md",
+            "style": "gold"
+          }
+        ]
+      },
+      "page": "/grid.html"
+    }
+  ],
+  "integrations": {
+    "auth": "none",
+    "payments": "none",
+    "forms": "formspree",
+    "search": "pagefind",
+    "analytics": "none",
+    "ai": "none"
+  },
+  "assets": {
+    "hero-plate": "/assets/hero-plate.svg",
+    "tile-media": "/assets/tile-media.svg",
+    "tile-gallery-1": "/assets/tile-gallery-1.svg",
+    "tile-gallery-2": "/assets/tile-gallery-2.svg",
+    "tile-gallery-3": "/assets/tile-gallery-3.svg",
+    "tile-product": "/assets/tile-product.svg",
+    "tile-team": "/assets/tile-team.svg"
+  }
+}
